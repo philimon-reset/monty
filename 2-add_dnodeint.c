@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- *add_dnodeint - add to the begining of the list.
+ * add_dnodeint - add to the begining of the list.
  * @head: head of list.
  * @n: value of new list
  *
  * Return: returns the address of the new element.
  */
-dlistint_t *add_dnodeint(stack_t **head, const int n)
+stack_t *add_dnodeint(stack_t **head, const int n)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 
