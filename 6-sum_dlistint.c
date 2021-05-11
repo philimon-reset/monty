@@ -1,15 +1,15 @@
-#include "lists.h"
+#include "monty.h"
 
 /**
- * sum_dlistint - sum of data in list.
+ * sum_stack - sum of data in list.
  * @head: head of list.
  *
  * Return: total data.
  */
 
-int sum_dlistint(dlistint_t *head)
+int sum_dlistint(stack_t *head)
 {
-	dlistint_t *temp = head;
+	stack_t *temp = head;
 	int total = 0;
 
 	while (temp != NULL)
