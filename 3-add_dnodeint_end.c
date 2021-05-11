@@ -8,7 +8,7 @@
  * Return: address of new node.
  */
 
-dlistint_t *add_dnodeint_end(stack_t **head, const int n)
+stack_t *add_dnodeint_end(stack_t **head, const int n)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 	stack_t *temp = *head;
