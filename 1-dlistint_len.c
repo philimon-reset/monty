@@ -7,7 +7,7 @@
  * Return: returns the number of nodes.
  */
 
-size_t dlistint_len(const stack_t *h)
+size_t stack_len(const stack_t *h)
 {
 	const stack_t *temp = h;
 	int nodes = 0;
