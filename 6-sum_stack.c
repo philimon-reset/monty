@@ -7,7 +7,7 @@
  * Return: total data.
  */
 
-int sum_dlistint(stack_t *head)
+int sum_stack(stack_t *head)
 {
 	stack_t *temp = head;
 	int total = 0;
