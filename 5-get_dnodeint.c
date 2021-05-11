@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 
 /**
  * get_dnodeint_at_index - get the addressof node at given index.
@@ -8,12 +8,12 @@
  * Return: address of indexed node.
  */
 
-dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
+dlistint_t *get_dnodeint_at_index(stack_t *head, unsigned int index)
 {
-	dlistint_t *temp = head;
+	stack_t *temp = head;
 	unsigned int size = 0, node = 0;
 
-	size = dlistint_len2(head);
+	size = stack_len2(head);
 	if (index >= size)
 		return (NULL);
 	while (temp != NULL)
@@ -27,15 +27,15 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 }
 
 /**
- * dlistint_len2 - counts the elements in the list.
+ * stack_len2 - counts the elements in the list.
  * @h: head of the list.
  *
  * Return: returns the number of nodes.
  */
 
-size_t dlistint_len2(const dlistint_t *h)
+size_t stack_len2(const stack_t *h)
 {
-	const dlistint_t *temp = h;
+	const stack_t *temp = h;
 	int nodes = 0;
 
 	while (temp != NULL)
