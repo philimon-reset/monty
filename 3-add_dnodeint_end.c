@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 
 /**
  * add_dnodeint_end - add new node at the end of the list.
@@ -8,10 +8,10 @@
  * Return: address of new node.
  */
 
-dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
+dlistint_t *add_dnodeint_end(stack_t **head, const int n)
 {
-	dlistint_t *new_node = malloc(sizeof(dlistint_t));
-	dlistint_t *temp = *head;
+	stack_t *new_node = malloc(sizeof(stack_t));
+	stack_t *temp = *head;
 
 	if (new_node == NULL)
 		return (NULL);
