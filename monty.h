@@ -37,18 +37,18 @@ typedef struct instruction_s
 } instruction_t;
 
 int _putchar(char c);
-size_t print_dlistint(const dlistint_t *h);
-size_t dlistint_len(const dlistint_t *h);
-size_t dlistint_len2(const dlistint_t *h);
-dlistint_t *add_dnodeint(dlistint_t **head, const int n);
-dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);
-void free_dlistint(dlistint_t *head);
-dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
-int sum_dlistint(dlistint_t *head);
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n);
-dlistint_t *get(dlistint_t *head, unsigned int index);
-dlistint_t *add(dlistint_t **head, dlistint_t *new_node);
-dlistint_t *end(dlistint_t **head, dlistint_t *new_node);
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
+size_t print_stack(const stack_t *h);
+size_t stack_len(const stack_t *h);
+size_t stack_len2(const stack_t *h);
+stack_t *add_dnodeint(stack_t **head, const int n);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+void free_stack(stack_t *head);
+stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
+int sum_stack(stack_t *head);
+stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n);
+stack_t *get(stack_t *head, unsigned int index);
+stack_t *add(stack_t **head, stack_t *new_node);
+stack_t *end(stack_t **head, stack_t *new_node);
+int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 
 #endif /*MONTY_H*/
