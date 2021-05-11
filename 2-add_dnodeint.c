@@ -7,9 +7,9 @@
  *
  * Return: returns the address of the new element.
  */
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+dlistint_t *add_dnodeint(stack_t **head, const int n)
 {
-	dlistint_t *new_node = malloc(sizeof(dlistint_t));
+	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
 		return (NULL);
