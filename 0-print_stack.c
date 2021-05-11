@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * print_dlistint - print all the elements in the list.
+ * print_stack - print all the elements in the list.
  * @h: head of the list.
  *
  * Return: returns the number of nodes.
