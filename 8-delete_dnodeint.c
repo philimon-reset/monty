@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 
 /**
  * delete_dnodeint_at_index - delete node at given index.
@@ -7,9 +7,9 @@
  *
  * Return: 1 if successs -1 if not
  */
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+int delete_dnodeint_at_index(stack_t **head, unsigned int index)
 {
-	dlistint_t *temp = *head;
+	stack_t *temp = *head;
 	unsigned int size = 0, node = 0;
 
 	if (head == NULL)
