@@ -1,15 +1,15 @@
-#include "lists.h"
+#include "monty.h"
 
 /**
- * free_dlistint - free all allocated memory.
+ * free_stack - free all allocated memory.
  * @head: head of linked list.
  *
  * Return: void function.
  */
 
-void free_dlistint(dlistint_t *head)
+void free_stack(stack_t *head)
 {
-	dlistint_t *temp;
+	stack_t *temp;
 
 	while (head != NULL)
 	{
