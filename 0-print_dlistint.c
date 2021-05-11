@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 
 /**
  * print_dlistint - print all the elements in the list.
@@ -7,9 +7,9 @@
  * Return: returns the number of nodes.
  */
 
-size_t print_dlistint(const dlistint_t *h)
+size_t print_dlistint(const stack_t *h)
 {
-	const dlistint_t *temp = h;
+	const stack_t *temp = h;
 	int nodes = 0;
 
 	while (temp != NULL)
