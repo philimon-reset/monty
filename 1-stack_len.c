@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * dlistint_len - counts the elements in the list.
+ * stack_len - counts the elements in the list.
  * @h: head of the list.
  *
  * Return: returns the number of nodes.
