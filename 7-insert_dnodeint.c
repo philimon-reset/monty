@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 
 /**
  * insert_dnodeint_at_index - insert new node at given index.
@@ -8,11 +8,11 @@
  *
  * Return: address of new node.
  */
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new_mode;
+	stack_t *new_mode;
 	unsigned int size = 0;
-	dlistint_t *temp = NULL, *op = NULL;
+	stack_t *temp = NULL, *op = NULL;
 
 	if (h == NULL)
 		return (NULL);
@@ -25,7 +25,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (idx > size)
 		return (NULL);
 	temp = get(*h, idx);
-	new_mode = malloc(sizeof(dlistint_t));
+	new_mode = malloc(sizeof(stack_t));
 	if (new_mode == NULL)
 		return (NULL);
 	new_mode->n = n;
@@ -59,10 +59,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
  * Return: address of indexed node.
  */
 
-dlistint_t *get(dlistint_t *head, unsigned int index)
+stack_t *get(stack_t *head, unsigned int index)
 {
-	dlistint_t *temp = head;
-	dlistint_t *temp2 = head;
+	stack_t *temp = head;
+	stack_t *temp2 = head;
 	unsigned int node = 0, size = 0;
 
 	while (temp2 != NULL)
@@ -91,7 +91,7 @@ dlistint_t *get(dlistint_t *head, unsigned int index)
  *
  * Return: returns the address of the new element.
  */
-dlistint_t *add(dlistint_t **head, dlistint_t *new_node)
+stack_t *add(stack_t **head, stack_t *new_node)
 {
 	if (*head == NULL)
 	{
@@ -114,9 +114,9 @@ dlistint_t *add(dlistint_t **head, dlistint_t *new_node)
  * Return: address of new node.
  */
 
-dlistint_t *end(dlistint_t **head, dlistint_t *new_node)
+stack_t *end(stack_t **head, stack_t *new_node)
 {
-	dlistint_t *temp = *head;
+	stack_t *temp = *head;
 
 	if (*head == NULL)
 	{
