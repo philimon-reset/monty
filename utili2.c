@@ -137,3 +137,10 @@ stack_t *end(stack_t **head, stack_t *new_node)
 	new_node->prev = temp;
 	return (new_node);
 }
+
+/**
+ * get_op - get the proper opcode.
+ * @line: string to be checked
+ *
+ * Return: function needed or else NULL
+ */
