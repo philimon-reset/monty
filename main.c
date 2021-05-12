@@ -21,7 +21,7 @@ int main(int argc, char *argv[]))
 	void (*fo)(stack_t **stack, unsigned int line_number);
 	if (argc != 2)
 	{
-		fprint(strerr, "USAGE: monty file\n");
+		fprint(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	stream = fopen(argv[1], 'r');
@@ -48,7 +48,7 @@ int main(int argc, char *argv[]))
 			if (*temp != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
 			{
 				token = strtok(line, ' ');
-				fprint(strerr, "L%d: unknown instruction %s\n", line_n, token);
+				fprint(stderr, "L%d: unknown instruction %s\n", line_n, token);
 				exit(EXIT_FAILURE);
 			}
 			else
@@ -60,7 +60,7 @@ int main(int argc, char *argv[]))
 		else
 		{
 			token = strtok(line, ' ');
-			fprint(strerr, "L%d: unknown instruction %s\n", line_n, token);
+			fprint(stderr, "L%d: unknown instruction %s\n", line_n, token);
 			exit(EXIT_FAILURE);
 		}
 		line_n++;
