@@ -75,7 +75,6 @@ char *skip_tabs(char *line)
 int get_num(char *operand, int line_number)
 {
 	char *val = strdup(operand);
-	int temp;
 
 	if (*val == '\0')
 	{
@@ -93,6 +92,5 @@ int get_num(char *operand, int line_number)
 		}
 	}
 	free(val);
-	temp = atoi(*operand);
-	return (temp);
+	return (atoi(operand));
 }
