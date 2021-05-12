@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+extern char *operand;
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -35,6 +37,8 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/** main **/
+char *checker(char *line);
 
 /** helper **/
 size_t stack_len(const stack_t *h);
@@ -46,6 +50,7 @@ int sum_stack(stack_t *head);
 void *push(stack_t **stack, unsigned int line_number);
 void print_stacks(stack_t **stack, unsigned int line_number);
 char *skip_tabs(char *line);
+int get_num(char *operand, int line_number);
 
 /** utili **/
 stack_t *add_dnodeint(stack_t **head, const int n);
@@ -59,6 +64,6 @@ stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n);
 stack_t *add(stack_t **head, stack_t *new_node);
 stack_t *end(stack_t **head, stack_t *new_node);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
-void (*get_op(char **av))(stack_t **stack, unsigned int line_number);
+void (*get_op(char *line))(stack_t **stack, unsigned int line_number);
 
 #endif /*MONTY_H*/
