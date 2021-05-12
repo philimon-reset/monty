@@ -11,12 +11,14 @@
 int main(int argc, char *argv[]))
 {
 	int line_n = 1;
+	char *av[] = {"push", "pall"};
 	char *line = NULL;
 	char *value = NULL, *p, *temp;
 	FILE *stream;
 	size_t num = 0;
 	size_t line_len;
 
+	void (*fo)(stack_t **stack, unsigned int line_number);
 	if (argc != 2)
 	{
 		fprint(strerr, "USAGE: monty file\n");
@@ -30,10 +32,10 @@ int main(int argc, char *argv[]))
 	}
 	while ((line_len = getline(&line, &num, stream)) != -1)
 	{
-		if (p = valid(line))
+		if (temp = checker(line))
 		{
-			strcpy(temp, p);
-			value = p + strlen(p) - 1;
+			fo = get_op(line) != NULL;
+			value = temp + strlen(temp) - 1;
 			if (*value == '\n')
 			{
 				*value = 0;
@@ -62,7 +64,18 @@ int main(int argc, char *argv[]))
  *
  * Return: stack to be added if valid
  */
-char **checker(char *line)
+char *checker(char *line)
 {
-	
+	char *p;
+	int i = 0;
+	char *av[] = {"push", "pall"};
+
+	strcpy(p, line);
+	while (av[i] != NULL)
+	{
+		if (strncmp(p, av[i], strlen(av[i])) == 0)
+			return p + strlen(av[i]);
+		i++;
+	}
+	return NULL;
 }
