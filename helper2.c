@@ -50,3 +50,36 @@ void print_stacks(stack_t **stack, unsigned int line_number)
 		temp = temp->next;
 	}
 }
+
+/**
+ * skip_tabs - skips the tabs to the first character
+ * @line: line to be checked
+ *
+ * Returns: line begining with the first character.
+ */
+char *skip_tabs(char *line)
+{
+	return line + strspn(line," \t");
+}
+
+/**
+ * valid - checkes if given value is in line
+ * @line: line to be checked
+ *
+ * Returns: address of line after given value or NULL
+ */
+char *valid(char *line)
+{
+	char *p;
+	int i = 0;
+	char *av[] = {"push", "pall"};
+
+	p = skip_tabs(line);
+	while (av[i] != NULL)
+	{
+		if (strncmp(p, av[i], strlen(av[i])) == 0)
+			return p + strlen(av[i]);
+	}
+	return NULL;
+}
+
