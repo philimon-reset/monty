@@ -15,7 +15,7 @@ void *push(stack_t **stack, unsigned int line_number)
 
 	if (new_node == NULL)
 	{
-		fprint(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		free(new_node);
 		exit(EXIT_FAILURE);
 	}
@@ -78,7 +78,7 @@ int get_num(char *operand, int line_number)
 
 	if (*val == '\0')
 	{
-		fprint(stderr, "L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free(val);
 		exit(EXIT_FAILURE);
 	}
@@ -86,7 +86,7 @@ int get_num(char *operand, int line_number)
 	{
 		if (*val < 48 || *val > 57)
 		{
-			fprint(stderr, "L%d: usage: push integer\n", line_number);
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			free(val);
 			exit(EXIT_FAILURE);
 		}
