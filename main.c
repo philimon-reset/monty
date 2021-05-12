@@ -11,7 +11,7 @@ char *operand = NULL;
 
 int main(int argc, char *argv[])
 {
-	stack_t *head == NULL;
+	stack_t *head = NULL;
 	int line_n = 1;
 	char *av[] = {"push", "pall"};
 	char *line = NULL, *value = NULL, *p, *temp = strdup(line), *token;
@@ -65,6 +65,7 @@ int main(int argc, char *argv[])
 		}
 		line_n++;
 	}
+	fclose(stream);
 	return (0);
 }
 
