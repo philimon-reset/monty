@@ -25,7 +25,6 @@ void *push(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		*stack = new_node;
-		return (new_node);
 	}
 	else
 	{
