@@ -30,3 +30,23 @@ void *push(stack_t **stack, unsigned int line_number)
 		*head = new_node;
 	}
 }
+
+/**
+ * print_stacks - print all the elements in the list.
+ * @h: head of the list.
+ *
+ * Return: returns the number of nodes.
+ */
+
+void print_stacks(stack_t **stack, unsigned int line_number)
+{
+	const stack_t *temp = *stack;
+	int nodes = 0;
+
+	while (temp != NULL)
+	{
+		printf("%d\n", temp->n);
+		nodes++;
+		temp = temp->next;
+	}
+}
