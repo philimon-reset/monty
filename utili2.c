@@ -152,7 +152,7 @@ void (*get_op(char **line))(stack_t **stack, unsigned int line_number)
 		{"push", push},
 		{"pall", print_stacks}
 	};
-	char **p;
+	char **p = NULL;
 
 	*p = skip_tabs(*line);
 	while (func[i].opcode != NULL)
