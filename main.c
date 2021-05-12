@@ -65,14 +65,4 @@ int main(int argc, char *argv[]))
 char **checker(char *line)
 {
 	
-
-	if (p = valid(line))
-	{
-		value = p + strlen(p) - 1;
-		if (*value == '\n')
-		{
-			*value = 0;
-		}
-		return (p); /** value plus other string, check if first character is space and second character is int **/
-	}
 }
