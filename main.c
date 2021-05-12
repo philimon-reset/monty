@@ -1,5 +1,6 @@
 #include "monty.h"
 
+char *operand = NULL;
 /**
  * main - main function
  * @argc: number of arguments
@@ -10,13 +11,12 @@
 
 int main(int argc, char *argv[]))
 {
+	stack_t *head == NULL;
 	int line_n = 1;
 	char *av[] = {"push", "pall"};
-	char *line = NULL;
-	char *value = NULL, *p, *temp;
+	char *line = NULL, *value = NULL, *p, *temp, *token;
 	FILE *stream;
-	size_t num = 0;
-	size_t line_len;
+	size_t num = 0, line_len;
 
 	void (*fo)(stack_t **stack, unsigned int line_number);
 	if (argc != 2)
@@ -34,23 +34,33 @@ int main(int argc, char *argv[]))
 	{
 		if (temp = checker(line))
 		{
-			fo = get_op(line) != NULL;
+			fo = get_op(line);
 			value = temp + strlen(temp) - 1;
 			if (*value == '\n')
 			{
 				*value = 0;
 			}
-			/** value plus other string, check if first character is space and second character is int **/
-			if (*temp != ' ')
+			if (*temp != '\n')
 			{
-				;
+				fprint(strerr, "L%d: usage: push integer\n", line_n);
+				exit(EXIT_FAILURE);
 			}
-			temp += strspn(temp, ' ');
+			if (*temp != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
+			{
+				token = strtok(line, ' ');
+				fprint(strerr, "L%d: unknown instruction %s\n", line_n, token);
+				exit(EXIT_FAILURE);
+			}
+			else
+			{
+				operand = temp + strspn(temp, ' ');
+				fo(&head, line_n);
+			}
 		}
 		else
 		{
-			line -= strspn(line, ' ');/** find a way to get the first string of the opcode **/
-			fprint(strerr, "L%d: unknown instruction %s\n", line_n, line);
+			token = strtok(line, ' ');
+			fprint(strerr, "L%d: unknown instruction %s\n", line_n, token);
 			exit(EXIT_FAILURE);
 		}
 		line_n++;
@@ -66,11 +76,12 @@ int main(int argc, char *argv[]))
  */
 char *checker(char *line)
 {
-	char *p;
+	char p[100];
 	int i = 0;
 	char *av[] = {"push", "pall"};
 
 	strcpy(p, line);
+	p = skip_tabs(line);
 	while (av[i] != NULL)
 	{
 		if (strncmp(p, av[i], strlen(av[i])) == 0)
