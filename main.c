@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 	{
 		if (checker(&temp) == 1)
 		{
-			fo = get_op(line);
+			fo = get_op(&line);
 			value = temp + strlen(temp) - 1;
 			if (*value == '\n')
 			{
