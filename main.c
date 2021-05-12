@@ -42,12 +42,12 @@ int main(int argc, char *argv[])
 			}
 			if (*temp != '\n')
 			{
-				fprintf(strerr, "L%d: usage: push integer\n", line_n);
+				fprintf(stderr, "L%d: usage: push integer\n", line_n);
 				exit(EXIT_FAILURE);
 			}
 			if (*temp != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
 			{
-				token = strtok(line, ' ');
+				token = strtok(line, " ");
 				fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
 				exit(EXIT_FAILURE);
 			}
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			token = strtok(line, ' ');
+			token = strtok(line, " ");
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
 			exit(EXIT_FAILURE);
 		}
