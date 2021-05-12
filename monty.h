@@ -64,6 +64,6 @@ stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n);
 stack_t *add(stack_t **head, stack_t *new_node);
 stack_t *end(stack_t **head, stack_t *new_node);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
-void (*get_op(char *line))(stack_t **stack, unsigned int line_number);
+void (*get_op(char **line))(stack_t **stack, unsigned int line_number);
 
 #endif /*MONTY_H*/
