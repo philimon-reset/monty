@@ -9,7 +9,7 @@ char *operand = NULL;
  * Return: 0
  */
 
-int main(int argc, char *argv[]))
+int main(int argc, char *argv[])
 {
 	stack_t *head == NULL;
 	int line_n = 1;
