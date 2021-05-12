@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	}
 	while ((line_len = getline(&line, &num, stream)) != -1)
 	{
-		if (checker(temp) == 1)
+		if (checker(&temp) == 1)
 		{
 			fo = get_op(line);
 			value = temp + strlen(temp) - 1;
@@ -80,7 +80,7 @@ int checker(char **line)
 	int i = 0;
 	char *av[] = {"push", "pall"};
 
-	*line = skip_tabs(line);
+	*line = skip_tabs(*line);
 	while (av[i] != NULL)
 	{
 		if (strncmp(*line, av[i], strlen(av[i])) == 0)
