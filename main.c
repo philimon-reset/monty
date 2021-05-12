@@ -13,8 +13,7 @@ int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
 	int line_n = 1;
-	char *av[] = {"push", "pall"};
-	char *line = NULL, *value = NULL, *p, *temp = strdup(line), *token;
+	char *line = NULL, *value = NULL, *temp = strdup(line), *token;
 	FILE *stream;
 	size_t num = 0, line_len;
 
