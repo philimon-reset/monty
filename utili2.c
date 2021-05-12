@@ -146,7 +146,7 @@ stack_t *end(stack_t **head, stack_t *new_node)
  */
 void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 {
-	int i = 0, a;
+	int i = 0;
 	instruction_t func[] = {
 		{"push", push},
 		{"pall", print_stacks}
