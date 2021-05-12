@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	stream = fopen(argv[1], 'r');
+	stream = fopen(argv[1], "r");
 	if (stream == NULL)
 	{
 		/** Error: Can't open file <file> **/
