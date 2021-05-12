@@ -147,6 +147,7 @@ stack_t *end(stack_t **head, stack_t *new_node)
 void (*get_op(char **line))(stack_t **stack, unsigned int line_number)
 {
 	int i = 0;
+	void (*fo)(stack_t **stack, unsigned int line_number);
 	instruction_t func[] = {
 		{"push", push},
 		{"pall", print_stacks}
@@ -154,7 +155,6 @@ void (*get_op(char **line))(stack_t **stack, unsigned int line_number)
 	char **p;
 	
 	*p = skip_tabs(*line);
-	void (*fo)(stack_t **stack, unsigned int line_number);
 	while (func[i].opcode != NULL)
 	{
 		if (strncmp(*p, func[i].opcode, strlen(func[i].opcode)) == 0)
