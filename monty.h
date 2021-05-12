@@ -45,6 +45,7 @@ int sum_stack(stack_t *head);
 /** helper2 **/
 void *push(stack_t **stack, unsigned int line_number);
 void print_stacks(stack_t **stack, unsigned int line_number);
+char *skip_tabs(char *line);
 
 /** utili **/
 stack_t *add_dnodeint(stack_t **head, const int n);
