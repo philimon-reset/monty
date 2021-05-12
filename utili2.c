@@ -144,26 +144,25 @@ stack_t *end(stack_t **head, stack_t *new_node)
  *
  * Return: function needed or else NULL
  */
-void (*get_op(char **av))(stack_t **stack, unsigned int line_number)
+void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 {
 	int i = 0, a;
 	instruction_t func[] = {
-		{'push', add},
-		{'pall', print_stack}
+		{"push", add},
+		{"pall", print_stack}
 	};
+	char *p;
 	
-	void (*f)(stack_t **stack, unsigned int line_number);
-	
-	for (; av[i] != NULL; i++)
+	p = skip_tabs(line);
+	void (*fo)(stack_t **stack, unsigned int line_number);
+	while (func[i].opcode != NULL)
 	{
-		for (a = 0; func[a] != NULL; a++)
+		if (strncmp(p, func[i].opcode, strlen(func[i].opcode)) == 0)
 		{
-			if (strcmp(av[i], func[a].opcode) == 0)
-			{
-				f = func[a].opcode;
-				break;
-			}
+			fo = func[i].f;
+			return (fo);
 		}
+		i++;
 	}
-	return (f);
+	return (NULL);
 }
