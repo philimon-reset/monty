@@ -36,19 +36,28 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int _putchar(char c);
-size_t print_stack(const stack_t *h);
+/** helper **/
 size_t stack_len(const stack_t *h);
+size_t print_stack(const stack_t *h);
 size_t stack_len2(const stack_t *h);
+int sum_stack(stack_t *head);
+
+/** helper2 **/
+void *push(stack_t **stack, unsigned int line_number);
+void print_stacks(stack_t **stack, unsigned int line_number);
+
+/** utili **/
 stack_t *add_dnodeint(stack_t **head, const int n);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
 void free_stack(stack_t *head);
 stack_t *get_dnodeint_at_index(stack_t *head, unsigned int index);
-int sum_stack(stack_t *head);
-stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n);
 stack_t *get(stack_t *head, unsigned int index);
+
+/** utili2 **/
+stack_t *insert_dnodeint_at_index(stack_t **h, unsigned int idx, int n);
 stack_t *add(stack_t **head, stack_t *new_node);
 stack_t *end(stack_t **head, stack_t *new_node);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
+void (*get_op(char **av))(stack_t **stack, unsigned int line_number);
 
 #endif /*MONTY_H*/
