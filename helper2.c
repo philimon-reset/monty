@@ -22,16 +22,16 @@ void *push(stack_t **stack, unsigned int line_number)
 	new_node->n = value;/** make the funtion **/
 	new_node->next = NULL;
 	new_node->prev = NULL;
-	if (*head == NULL)
+	if (*stack == NULL)
 	{
-		*head = new_node;
+		*stack = new_node;
 		return (new_node);
 	}
 	else
 	{
-		new_node->next = (*head);
-		(*head)->prev = new_node;
-		*head = new_node;
+		new_node->next = (*stack);
+		(*stack)->prev = new_node;
+		*stack = new_node;
 	}
 }
 
