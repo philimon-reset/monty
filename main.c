@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				operand = temp + strspn(temp, ' ');
+				operand = temp + strspn(temp, " ");
 				fo(&head, line_n);
 			}
 		}
