@@ -7,9 +7,9 @@
  * Return: returns the number of nodes.
  */
 
-void print_stack(stack_t **stack, unsigned int line_number)
+size_t print_stack(const stack_t *h)
 {
-	const stack_t *temp = *stack;
+	const stack_t *temp = h;
 	int nodes = 0;
 
 	while (temp != NULL)
@@ -18,6 +18,7 @@ void print_stack(stack_t **stack, unsigned int line_number)
 		nodes++;
 		temp = temp->next;
 	}
+	return (nodes);
 }
 
 
