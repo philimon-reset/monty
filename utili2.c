@@ -152,12 +152,12 @@ void (*get_op(char **line))(stack_t **stack, unsigned int line_number)
 		{"push", push},
 		{"pall", print_stacks}
 	};
-	char **p;
+	char *p;
 	
-	*p = skip_tabs(*line);
+	p = skip_tabs(line);
 	while (func[i].opcode != NULL)
 	{
-		if (strncmp(*p, func[i].opcode, strlen(func[i].opcode)) == 0)
+		if (strncmp(p, func[i].opcode, strlen(func[i].opcode)) == 0)
 		{
 			fo = func[i].f;
 			return (fo);
