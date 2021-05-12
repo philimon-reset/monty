@@ -68,27 +68,6 @@ char *skip_tabs(char *line)
 }
 
 /**
- * valid - checkes if given value is in line
- * @line: line to be checked
- *
- * Returns: address of line after given value or NULL
- */
-char *valid(char *line)
-{
-	char *p;
-	int i = 0;
-	char *av[] = {"push", "pall"};
-
-	while (av[i] != NULL)
-	{
-		if (strncmp(p, av[i], strlen(av[i])) == 0)
-			return p + strlen(av[i]);
-		i++;
-	}
-	return NULL;
-}
-
-/**
  * get_num - get the int needed or exit if not applicable.
  * @operand: value to be converted
  *
