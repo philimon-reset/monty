@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	stack_t *head == NULL;
 	int line_n = 1;
 	char *av[] = {"push", "pall"};
-	char *line = NULL, *value = NULL, *p, *temp, *token;
+	char *line = NULL, *value = NULL, *p, *temp = strdup(line), *token;
 	FILE *stream;
 	size_t num = 0, line_len;
 
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	}
 	while ((line_len = getline(&line, &num, stream)) != -1)
 	{
-		if (temp = checker(line))
+		if (checker(temp) == 1)
 		{
 			fo = get_op(line);
 			value = temp + strlen(temp) - 1;
@@ -74,19 +74,20 @@ int main(int argc, char *argv[])
  *
  * Return: stack to be added if valid
  */
-char *checker(char *line)
+int checker(char **line)
 {
-	char p[100];
 	int i = 0;
 	char *av[] = {"push", "pall"};
 
-	strcpy(p, line);
-	p = skip_tabs(line);
+	*line = skip_tabs(line);
 	while (av[i] != NULL)
 	{
-		if (strncmp(p, av[i], strlen(av[i])) == 0)
-			return p + strlen(av[i]);
+		if (strncmp(*line, av[i], strlen(av[i])) == 0)
+		{
+			*line += strlen(av[i]);
+			return (1);
+		}
 		i++;
 	}
-	return NULL;
+	return (0);
 }
