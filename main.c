@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	int line_n = 1;
 	char *line = NULL, *value = NULL, *temp = strdup(line), *token;
 	FILE *stream;
-	size_t num = 0, line_len;
+	size_t num = 0;
 
 	void (*fo)(stack_t **stack, unsigned int line_number);
 	if (argc != 2)
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 		/** Error: Can't open file <file> **/
 		exit(EXIT_FAILURE);
 	}
-	while ((line_len = getline(&line, &num, stream)) != -1)
+	while (getline(&line, &num, stream) != -1)
 	{
 		if (checker(&temp) == 1)
 		{
