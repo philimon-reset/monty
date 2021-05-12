@@ -37,8 +37,7 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-/** main **/
-int checker(char **line);
+
 
 /** helper **/
 size_t stack_len(const stack_t *h);
