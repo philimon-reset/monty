@@ -148,8 +148,8 @@ void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 {
 	int i = 0, a;
 	instruction_t func[] = {
-		{"push", add},
-		{"pall", print_stack}
+		{"push", push},
+		{"pall", print_stacks}
 	};
 	char *p;
 	
