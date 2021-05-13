@@ -39,7 +39,7 @@ typedef struct instruction_s
 } instruction_t;
 
 void checker(char *line);
-int token(const char *s);
+int token(char *s);
 /** helper **/
 size_t stack_len(const stack_t *h);
 size_t print_stack(const stack_t *h);
