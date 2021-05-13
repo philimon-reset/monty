@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * push - add to the begining of the list.
+ * pint - print begining of stack
  * @stack: head of list.
  * @ln: line_number.
  *
