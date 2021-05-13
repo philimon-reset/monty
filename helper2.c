@@ -112,6 +112,12 @@ void error_p(char *line, int line_n)
 
 	val = strdup(line);
 	token = strtok(val, " ");
+	if (token == NULL)
+	{
+		free(val);
+		fprintf(stderr, "L%d: usage: push integer\n", line_n);
+		exit(EXIT_FAILURE);
+	}
 	if (strncmp(token, "pall", 4) == 0)
 	{
 		free(val);
