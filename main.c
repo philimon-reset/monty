@@ -13,9 +13,7 @@ int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
 	int line_n = 1, a = 0, space = 0, pa;
-	char *line = NULL;
-	char *av[] = {"push"};
-	char *temp = NULL;
+	char *line = NULL, *temp = NULL, *av[] = {"push"};
 	FILE *stream;
 	size_t num = 0;
 	void (*fo)(stack_t **stack, unsigned int line_number);
@@ -85,13 +83,13 @@ void checker(char *line)
 			break;
 		i++;
 	}
-	line[i] = '\0';	
+	line[i] = '\0';
 }
 
 int token(const char *s)
 {
-	char* temp;
-	char* token;
+	char *temp;
+	char *token;
 
 	temp = strdup(s);
 	token = strtok(temp, " ");
