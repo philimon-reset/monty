@@ -37,12 +37,12 @@ void push(stack_t **stack, unsigned int line_number)
 /**
  * print_stacks - print all the elements in the list.
  * @stack: head of the list.
- * @line_number: line number.
+ * @linen: line number.
  *
  * Return: returns the number of nodes.
  */
 
-void print_stacks(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void print_stacks(stack_t **stack, unsigned int linen __attribute__((unused)))
 {
 	const stack_t *temp = *stack;
 	int nodes = 0;
