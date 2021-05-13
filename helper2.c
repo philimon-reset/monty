@@ -55,14 +55,34 @@ void print_stacks(stack_t **stack, unsigned int line_number __attribute__((unuse
 }
 
 /**
- * skip_tabs - skips the tabs to the first character
+ * skip_tabs - skips the unprintable characters
  * @line: line to be checked
  *
- * Returns: line begining with the first character.
+ * Returns: void function
  */
-char *skip_tabs(char *line)
+void *skip_tabs(char *line)
 {
-	return line + strspn(line," \t");
+	int i = 0;
+	char *av[] = {"push", "pall"};
+	char *token;
+
+	token = strtok(line, " ");
+	line += strspn(line, " ");
+	while (av[i] != NULL)
+	{
+		if (strncmp(token, av[i], strlen(av[i])) == 0)
+		{
+			line += strlen(av[i]);
+		}
+		i++;
+	}
+	while (line[i] != '\0')
+	{
+		if (line[i] < ' ' || line[i] > 126)
+			break;
+		i++;
+	}
+	line[i] = '\0';
 }
 
 /**
@@ -73,19 +93,37 @@ char *skip_tabs(char *line)
  */
 int get_num(char *operand, int line_number)
 {
-    printf("%s\n", operand);
+	printf("%s\n", operand);
 	if (*operand == '\0')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	while (*operand != '\0')
+	if (*operand < 48 || *operand > 57)
 	{
-		if (*operand < 48 || *operand > 57)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
-		}
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	return (atoi(operand));
+}
+
+/**
+ * error_p - check if error is present.
+ * @line: line to be checked for token
+ * @temp: line containing value
+ * @line_n: line number
+ *
+ * Return: void function
+ */
+void error_p(char *line, char *temp, int line_n)
+{
+	char *token;
+
+	if (*temp != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
+	{
+		free(temp);
+		token = strtok(line, " ");
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+		exit(EXIT_FAILURE);
+	}
 }
