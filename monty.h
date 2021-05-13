@@ -51,7 +51,7 @@ void push(stack_t **stack, unsigned int line_number);
 void print_stacks(stack_t **stack, unsigned int line_number __attribute__((unused)));
 int skip_tabs(char *line);
 int get_num(char *operand, int line_number);
-void error_p(char *line, int line_n);
+void error_p(char *line, int line_n, stack_t **stack);
 
 /** utili **/
 stack_t *add_dnodeint(stack_t **head, const int n);
