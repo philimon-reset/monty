@@ -83,7 +83,7 @@ char* checker(char *line)
 	int i = 0;
 	char *av[] = {"push", "pall"};
 
-	line += strspn(line," \t");
+	line += strspn(line, " ");
 	while (av[i] != NULL)
 	{
 		if (strncmp(line, av[i], strlen(av[i])) == 0)
