@@ -110,7 +110,7 @@ int get_num(char *operand, int line_number)
  */
 void error_p(char *line, int line_n, stack_t **stack)
 {
-	char *token, *av[] = {"pall", "pint", "pop"};
+	char *token, *av[] = {"pall", "pint", "pop", "swap"};
 	int a = 0;
 	char *val;
 
@@ -124,7 +124,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
-	while (a < 3)
+	while (a < 4)
 	{
 		if (strncmp(line, av[a], 4) == 0)
 		{
