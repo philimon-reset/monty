@@ -7,10 +7,12 @@
  *
  * Return: void function.
  */
+
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 	int value = get_num(line, line_number);
+
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -31,6 +33,7 @@ void push(stack_t **stack, unsigned int line_number)
 		*stack = new_node;
 	}
 }
+
 /**
  * print_stacks - print all the elements in the list.
  * @stack: head of the list.
@@ -38,10 +41,12 @@ void push(stack_t **stack, unsigned int line_number)
  *
  * Return: returns the number of nodes.
  */
+
 void print_stacks(stack_t **stack, unsigned int linen __attribute__((unused)))
 {
 	const stack_t *temp = *stack;
 	int nodes = 0;
+
 	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
@@ -49,6 +54,7 @@ void print_stacks(stack_t **stack, unsigned int linen __attribute__((unused)))
 		temp = temp->next;
 	}
 }
+
 /**
  * skip_tabs - skips the unprintable characters.
  * @line: line to be checked.
@@ -71,6 +77,7 @@ int skip_tabs(char *line)
 	}
 	return (a);
 }
+
 /**
  * get_num - get the int needed or exit if not applicable.
  * @line: value to be converted.
@@ -92,6 +99,7 @@ int get_num(char *line, int line_number)
 	}
 	return (atoi(line));
 }
+
 /**
  * error_p - check if error is present.
  * @line: line to be checked for token.
@@ -118,7 +126,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 	}
 	while (a < 4)
 	{
-		if (strncmp(line, av[a], strlen(av[a]) == 0))
+		if (strncmp(line, av[a], 4) == 0)
 		{
 			free(val);
 			return;
