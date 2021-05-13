@@ -153,7 +153,7 @@ void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 		{"pall", print_stacks}
 	};
 
-	line += strspn(line," \t");
+	line += strspn(line," ");
 	while (func[i].opcode != NULL)
 	{
 		if (strncmp(line, func[i].opcode, strlen(func[i].opcode)) == 0)
