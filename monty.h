@@ -58,6 +58,7 @@ void error_p(char *line, int line_n, stack_t **stack);
 /** helper3 **/
 void pint(stack_t **stack, unsigned int ln);
 void pop(stack_t **stack, unsigned int ln);
+void swap(stack_t **stack, unsigned int ln);
 
 /** utili **/
 stack_t *add_dnodeint(stack_t **head, const int n);
