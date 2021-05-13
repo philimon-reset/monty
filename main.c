@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
 	int line_n = 1, space = 0;
-	char *line = NULL, *temp = malloc(sizeof(line));
+	char *line = NULL, *temp = NULL;
 	FILE *stream;
 	size_t num = 0;
 	void (*fo)(stack_t **stack, unsigned int line_number);
@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 	}
 	while ((getline(&line, &num, stream)) != -1)
 	{
+		temp = malloc(sizeof(line));
 		strcpy(temp, line);
 		space = token(temp);
 		if (space == 0)
@@ -83,15 +84,14 @@ int token(char *s)
 	char *temp;
 	char *token;
 
-	temp = strdup(s);
-	token = strtok(temp, " ");
-	if (temp == NULL)
+	if (s == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free(temp);
 		free(s);
 		exit(EXIT_FAILURE);
 	}
+	temp = strdup(s);
+	token = strtok(temp, " ");
 	if (token == NULL)
 	{
 		free(temp);
