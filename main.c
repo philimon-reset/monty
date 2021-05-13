@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while ((getline(&line, &num, stream)) != -1)
+	while (getline(&line, &num, stream) != -1)
 	{
 		temp = strdup(line);
 		space = token(temp);
