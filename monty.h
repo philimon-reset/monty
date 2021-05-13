@@ -48,7 +48,7 @@ int sum_stack(stack_t *head);
 
 /** helper2 **/
 void push(stack_t **stack, unsigned int line_number);
-void print_stacks(stack_t **stack, unsigned int line_number __attribute__((unused)));
+void print_stacks(stack_t **stack, unsigned int linen __attribute__((unused)));
 int skip_tabs(char *line);
 int get_num(char *operand, int line_number);
 void error_p(char *line, int line_n, stack_t **stack);
