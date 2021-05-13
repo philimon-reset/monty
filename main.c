@@ -35,7 +35,6 @@ int main(int argc, char *argv[])
 			continue;
 		}
 		fo = get_op(temp);
-		free(temp);
 		if (fo)
 		{
 			line = checker2(line);
