@@ -66,16 +66,16 @@ void *skip_tabs(char *line)
 	char *av[] = {"push", "pall"};
 	char *token;
 
-	token = strtok(line, " ");
 	line += strspn(line, " ");
 	while (av[i] != NULL)
 	{
-		if (strncmp(token, av[i], strlen(av[i])) == 0)
+		if (strncmp(line, av[i], strlen(av[i])) == 0)
 		{
-			line += strlen(av[i]);
+			break;
 		}
 		i++;
 	}
+	line += strlen(av[i]);
 	while (line[i] != '\0')
 	{
 		if (line[i] < ' ' || line[i] > 126)
@@ -117,13 +117,10 @@ int get_num(char *operand, int line_number)
  */
 void error_p(char *line, char *temp, int line_n)
 {
-	char *token;
-
-	if (*temp != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
+	if (*line != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
 	{
 		free(temp);
-		token = strtok(line, " ");
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, temp);
 		exit(EXIT_FAILURE);
 	}
 }
