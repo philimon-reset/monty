@@ -150,7 +150,8 @@ void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 	void (*fo)(stack_t **stack, unsigned int line_number);
 	instruction_t func[] = {
 		{"push", push},
-		{"pall", print_stacks}
+		{"pall", print_stacks},
+		{NULL, NULL}
 	};
 
 	line += strspn(line," ");
