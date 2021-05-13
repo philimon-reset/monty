@@ -85,8 +85,14 @@ void checker(char *line)
 	}
 	line[i] = '\0';
 }
+/**
+ * token - checks if value given is valid
+ * @s: current line to be checked
+ *
+ * Return: 1 or 0
+ */
 
-int token(const char *s)
+int token(char *s)
 {
 	char *temp;
 	char *token;
