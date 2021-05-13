@@ -1,3 +1,12 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+  
 #include "monty.h"
 
 char *operand = NULL;
@@ -13,11 +22,16 @@ int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
 	int line_n = 1;
-	char *line = NULL, *value = NULL, *temp = NULL, *token;
+	char *operand = NULL;
+	char *line = NULL;
+	char *value = NULL;
+	char *temp = NULL;
+	char *token;
 	FILE *stream;
 	size_t num = 0;
 
 	void (*fo)(stack_t **stack, unsigned int line_number);
+	
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -26,25 +40,20 @@ int main(int argc, char *argv[])
 	stream = fopen(argv[1], "r");
 	if (stream == NULL)
 	{
-		/** Error: Can't open file <file> **/
+	    fprintf(stderr, "Error: Can't open file %s", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &num, stream) != -1)
 	{
-		temp = strdup(line);
-		if (checker(&temp) == 1)
+	    temp = strdup(line);
+		if (checker(temp))
 		{
-			fo = get_op(&line);
+		    temp = checker(temp);
+			fo = get_op(line);
 			value = temp + strlen(temp) - 1;
 			if (*value == '\n')
 			{
 				*value = 0;
-			}
-			if (*temp != '\n')
-			{
-				fprintf(stderr, "L%d: usage: push integer\n", line_n);
-				free(temp);
-				exit(EXIT_FAILURE);
 			}
 			if (*temp != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
 			{
@@ -56,7 +65,7 @@ int main(int argc, char *argv[])
 			else
 			{
 				operand = temp + strspn(temp, " ");
-				free(temp);
+				printf("%s\n", operand);
 				fo(&head, line_n);
 			}
 		}
@@ -79,20 +88,20 @@ int main(int argc, char *argv[])
  *
  * Return: stack to be added if valid
  */
-int checker(char **line)
+char* checker(char *line)
 {
 	int i = 0;
 	char *av[] = {"push", "pall"};
 
-	*line = skip_tabs(*line);
+	line += strspn(line," \t");
 	while (av[i] != NULL)
 	{
-		if (strncmp(*line, av[i], strlen(av[i])) == 0)
+		if (strncmp(line, av[i], strlen(av[i])) == 0)
 		{
-			*line += strlen(av[i]);
-			return (1);
+			line += strlen(av[i]);
+			return (line);
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
