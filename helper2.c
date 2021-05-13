@@ -1,3 +1,4 @@
+  
 #include "monty.h"
 
 /**
@@ -11,7 +12,7 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
-	int value = get_num(operand, line_number);
+	int value = get_num(line, line_number);
 
 	if (new_node == NULL)
 	{
@@ -80,24 +81,24 @@ int skip_tabs(char *line)
 
 /**
  * get_num - get the int needed or exit if not applicable.
- * @operand: value to be converted.
+ * @line: value to be converted.
  * @line_number: line number.
  *
  * Return: correct value if valid or exit if not.
  */
-int get_num(char *operand, int line_number)
+int get_num(char *line, int line_number)
 {
-	if (*operand == '\0')
+	if (*line == '\0')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (*operand < 48 || *operand > 57)
+	if (*line < 48 || *line > 57)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	return (atoi(operand));
+	return (atoi(line));
 }
 
 /**
