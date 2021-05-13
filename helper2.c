@@ -88,11 +88,13 @@ int get_num(char *operand, int line_number)
 	if (*operand == '\0')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free(operand);
 		exit(EXIT_FAILURE);
 	}
 	if (*operand < 48 || *operand > 57)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free(operand);
 		exit(EXIT_FAILURE);
 	}
 	return (atoi(operand));
@@ -116,6 +118,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 	{
 		free(val);
 		free_stack(*stack);
+		free(line);
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
@@ -129,6 +132,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
 		free_stack(*stack);
 		free(val);
+		free(line);
 		exit(EXIT_FAILURE);
 	}
 	free(val);
