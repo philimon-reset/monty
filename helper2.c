@@ -126,7 +126,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 	}
 	while (a < 5)
 	{
-		if (strncmp(line, av[a], strlen(av[a]) == 0)
+		if (strncmp(line, av[a], strlen(av[a]) == 0))
 		{
 			free(val);
 			return;
