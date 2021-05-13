@@ -40,9 +40,9 @@ int main(int argc, char *argv[])
 		fo = get_op(temp);
 		if (fo)
 		{
-			skip_tabs(temp);
+			skip_tabs(line);
 			error_p(line, temp, line_n);
-			operand = temp + strspn(temp, " ");
+			operand = line + strspn(temp, " ");
 			printf("%s\n", operand);
 			fo(&head, line_n);
 		}
