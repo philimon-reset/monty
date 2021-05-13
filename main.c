@@ -35,68 +35,22 @@ int main(int argc, char *argv[])
 	}
 	while (getline(&line, &num, stream) != -1)
 	{
-	    temp = strdup(line);
-		if (checker(temp))
+		temp = strdup(line);
+		fo = get_op(temp);
+		if (fo)
 		{
-		    temp = checker(temp);
-			fo = get_op(line);
-			value = temp + strlen(temp) - 1;
-			if (*value == '\n')
-			{
-				*value = 0;
-			}
-			if (*temp != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
-			{
-				token = strtok(line, " ");
-				fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
-				free(temp);
-				exit(EXIT_FAILURE);
-			}
-			else
-			{
-				operand = temp + strspn(temp, " ");
-				printf("%s\n", operand);
-				fo(&head, line_n);
-			}
+			skip_tabs(temp);
+			error_p(line, temp, line_n);
+			operand = temp + strspn(temp, " ");
+			printf("%s\n", operand);
+			fo(&head, line_n);
 		}
 		else
 		{
-			token = strtok(line, " ");
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
-			free(temp);
-			exit(EXIT_FAILURE);
+			error_p(line, temp, line_n);
 		}
 		line_n++;
 	}
 	fclose(stream);
 	return (0);
-}
-
-/**
- * checker - checks if value given is valid
- * @line: current line to be checked
- *
- * Return: stack to be added if valid
- */
-char* checker(char *line)
-{
-	int i = 0;
-	char *av[] = {"push", "pall"};
-	char *token;
-
-	token = strtok(line, " ");
-	while (token != NULL)
-	{
-		token = strtok(NULL, " ");
-	}
-	while (av[i] != NULL)
-	{
-		if (strncmp(token, av[i], strlen(av[i])) == 0)
-		{
-			
-			return (line);
-		}
-		i++;
-	}
-	return (NULL);
 }
