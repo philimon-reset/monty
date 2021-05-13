@@ -43,17 +43,17 @@ int main(int argc, char *argv[])
 		free(temp);
 		if (fo)
 		{
-		    checker(line);
-		    line += strspn(line, " ");
+			checker(line);
+			line += strspn(line, " ");
 			a = skip_tabs(line);
 			pa = 0;
 			while (pa < 1)
 			{
-    			if (strncmp(line, av[pa], strlen(av[pa])) == 0)
-    			{
-    			    line += a;
-    			}
-    			pa++;
+				if (strncmp(line, av[pa], strlen(av[pa])) == 0)
+				{
+					line += a;
+				}
+				pa++;
 			}
 			error_p(line, line_n);
 			operand = line + strspn(line, " ");
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
  */
 void checker(char *line)
 {
-    int i = 0;
+	int i = 0;
 
 	while (line[i] != '\0')
 	{
@@ -91,16 +91,16 @@ void checker(char *line)
 
 int token(const char *s)
 {
-    char* temp;
-    char* token;
+	char* temp;
+	char* token;
 
-    temp = strdup(s);
-    token = strtok(temp, " ");
-    if (token == NULL)
-    {
-        free(temp);
-        return (0);
-    }
-    free(temp);
-    return (1);
+	temp = strdup(s);
+	token = strtok(temp, " ");
+	if (token == NULL)
+	{
+		free(temp);
+		return (0);
+	}
+	free(temp);
+	return (1);
 }
