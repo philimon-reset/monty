@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
 	while (getline(&line, &num, stream) != -1)
 	{
 		temp = strdup(line);
+		checker(temp);
 		fo = get_op(temp);
 		if (fo)
 		{
@@ -53,4 +54,24 @@ int main(int argc, char *argv[])
 	}
 	fclose(stream);
 	return (0);
+}
+
+/**
+ * checker - checks if value given is valid
+ * @line: current line to be checked
+ *
+ * Return: stack to be added if valid
+ */
+void* checker(char *line)
+{
+	int i = 0;
+
+	line += strspn(line, " ");
+	while (line[i] != '\0')
+	{
+		if (line[i] < ' ' || line[i] > 126)
+			break;
+		i++;
+	}
+	line[i] = '\0';
 }
