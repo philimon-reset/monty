@@ -3,9 +3,9 @@
 /**
  * push - add to the begining of the list.
  * @stack: head of list.
- * @line_number: line_number
+ * @line_number: line_number.
  *
- * Return: void function
+ * Return: void function.
  */
 
 void push(stack_t **stack, unsigned int line_number)
@@ -37,7 +37,7 @@ void push(stack_t **stack, unsigned int line_number)
 /**
  * print_stacks - print all the elements in the list.
  * @stack: head of the list.
- * @line_number: line number
+ * @line_number: line number.
  *
  * Return: returns the number of nodes.
  */
@@ -56,10 +56,10 @@ void print_stacks(stack_t **stack, unsigned int line_number __attribute__((unuse
 }
 
 /**
- * skip_tabs - skips the unprintable characters
- * @line: line to be checked
+ * skip_tabs - skips the unprintable characters.
+ * @line: line to be checked.
  *
- * Returns: void function
+ * Returns: int line.
  */
 int skip_tabs(char *line)
 {
@@ -80,10 +80,10 @@ int skip_tabs(char *line)
 
 /**
  * get_num - get the int needed or exit if not applicable.
- * @operand: value to be converted
- * @line_number: line number
+ * @operand: value to be converted.
+ * @line_number: line number.
  *
- * Returns: correct value if valid or exit if not
+ * Returns: correct value if valid or exit if not.
  */
 int get_num(char *operand, int line_number)
 {
@@ -102,11 +102,11 @@ int get_num(char *operand, int line_number)
 
 /**
  * error_p - check if error is present.
- * @line: line to be checked for token
- * @line_n: line number
- * @stack: stack head
+ * @line: line to be checked for token.
+ * @line_n: line number.
+ * @stack: stack head.
  *
- * Return: void function
+ * Return: void function.
  */
 void error_p(char *line, int line_n, stack_t **stack)
 {
