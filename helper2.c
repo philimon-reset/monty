@@ -3,7 +3,7 @@
 /**
  * push - add to the begining of the list.
  * @stack: head of list.
- * @nline_number: line_number
+ * @line_number: line_number
  *
  * Return: void function
  */
@@ -36,7 +36,8 @@ void push(stack_t **stack, unsigned int line_number)
 
 /**
  * print_stacks - print all the elements in the list.
- * @h: head of the list.
+ * @stack: head of the list.
+ * @line_number: line number
  *
  * Return: returns the number of nodes.
  */
@@ -80,6 +81,7 @@ int skip_tabs(char *line)
 /**
  * get_num - get the int needed or exit if not applicable.
  * @operand: value to be converted
+ * @line_number: line number
  *
  * Returns: correct value if valid or exit if not
  */
@@ -104,6 +106,7 @@ int get_num(char *operand, int line_number)
  * error_p - check if error is present.
  * @line: line to be checked for token
  * @line_n: line number
+ * @stack: stack head
  *
  * Return: void function
  */
