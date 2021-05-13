@@ -65,7 +65,6 @@ int main(int argc, char *argv[])
 		}
 		line_n++;
 	}
-	free(temp);
 	fclose(stream);
 	return (0);
 }
