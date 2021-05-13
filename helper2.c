@@ -105,7 +105,7 @@ int get_num(char *operand, int line_number)
  *
  * Return: void function
  */
-void error_p(char *line, int line_n)
+void error_p(char *line, int line_n, stack_t **stack)
 {
 	char *token;
 	char *val;
@@ -115,6 +115,7 @@ void error_p(char *line, int line_n)
 	if (token == NULL)
 	{
 		free(val);
+		free_stack(*stack);
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
@@ -126,6 +127,7 @@ void error_p(char *line, int line_n)
 	else if (*line != ' ')
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+		free_stack(*stack);
 		free(val);
 		exit(EXIT_FAILURE);
 	}
