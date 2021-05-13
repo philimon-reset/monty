@@ -63,19 +63,18 @@ void print_stacks(stack_t **stack, unsigned int line_number __attribute__((unuse
 void *skip_tabs(char *line)
 {
 	int i = 0;
-	char *av[] = {"push", "pall", NULL};
-	char *token;
+	char *av[] = {"push", "pall"};
 
 	line += strspn(line, " ");
-	while (av[i] != NULL)
+	while (i < 2)
 	{
 		if (strncmp(line, av[i], strlen(av[i])) == 0)
 		{
+			line += strlen(av[i]);
 			break;
 		}
 		i++;
 	}
-	line += strlen(av[i]);
 }
 
 /**
