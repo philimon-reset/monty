@@ -12,7 +12,7 @@ char *operand = NULL;
 int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
-	int line_n = 1, a = 0, space = 0;
+	int line_n = 1, space = 0;
 	char *line = NULL, *temp = NULL;
 	FILE *stream;
 	size_t num = 0;
@@ -118,8 +118,8 @@ void argcc(int argc_n)
  */
 char *checker2(char *line)
 {
-	int pa;
-	char *av[] = {"push"}
+	int pa, a = 0;
+	char *av[] = {"push"};
 
 	checker(line);
 	line += strspn(line, " ");
