@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
 	int line_n = 1, a = 0, space = 0, pa;
 	char *line = NULL;
 	char *av[] = {"push"};
-	char *value = NULL;
 	char *temp = NULL;
 	FILE *stream;
 	size_t num = 0;
