@@ -19,7 +19,7 @@ void push(stack_t **stack, unsigned int line_number)
 		free(new_node);
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = value;/** make the funtion **/
+	new_node->n = value;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	if (*stack == NULL)
