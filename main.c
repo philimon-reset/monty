@@ -43,19 +43,19 @@ int main(int argc, char *argv[])
 		free(temp);
 		if (fo)
 		{
-		    checker(line);
-		    line += strspn(line, " ");
+			checker(line);
+			line += strspn(line, " ");
 			a = skip_tabs(line);
 			pa = 0;
 			while (pa < 1)
 			{
-    			if (strncmp(line, av[pa], strlen(av[pa])) == 0)
-    			{
-    			    line += a;
-    			}
-    			pa++;
+				if (strncmp(line, av[pa], strlen(av[pa])) == 0)
+				{
+					line += a;
+				}
+				pa++;
 			}
-			error_p(line, line_n);
+			error_p(line, line_n, &head);
 			operand = line + strspn(line, " ");
 			operand += strspn(operand, " ");
 			fo(&head, line_n);
@@ -66,6 +66,8 @@ int main(int argc, char *argv[])
 		}
 		line_n++;
 	}
+	free(line);
+	free_stack(head);
 	fclose(stream);
 	return (0);
 }
