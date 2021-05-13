@@ -18,11 +18,7 @@ int main(int argc, char *argv[])
 	size_t num = 0;
 	void (*fo)(stack_t **stack, unsigned int line_number);
 
-	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+	argcc(argc);
 	stream = fopen(argv[1], "r");
 	if (stream == NULL)
 	{
@@ -106,4 +102,19 @@ int token(char *s)
 	}
 	free(temp);
 	return (1);
+}
+
+/**
+ * argcc - check if argc if valid.
+ * @argc_n: argc value.
+ *
+ * Return: void function.
+ */
+void argcc(int argc_n)
+{
+	if (argc_n != 2)
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 }
