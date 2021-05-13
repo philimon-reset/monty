@@ -126,14 +126,14 @@ void error_p(char *line, int line_n, stack_t **stack)
 	}
 	while (a < 2)
 	{
-		if (strncmp(line, av[i], 4) == 0)
+		if (strncmp(line, av[a], 4) == 0)
 		{
 			free(val);
 			return;
 		}
 		a++;
 	}
-	else if (*line != ' ')
+	if (*line != ' ')
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
 		free_stack(*stack);
