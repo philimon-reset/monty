@@ -55,6 +55,9 @@ int skip_tabs(char *line);
 int get_num(char *operand, int line_number);
 void error_p(char *line, int line_n, stack_t **stack);
 
+/** helper3 **/
+void pint(stack_t **stack, unsigned int line_number);
+
 /** utili **/
 stack_t *add_dnodeint(stack_t **head, const int n);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
