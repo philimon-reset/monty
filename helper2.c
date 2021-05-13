@@ -60,21 +60,21 @@ void print_stacks(stack_t **stack, unsigned int line_number __attribute__((unuse
  *
  * Returns: void function
  */
-void skip_tabs(char *line)
+int skip_tabs(char *line)
 {
-	int i = 0;
+	int i = 0, a = 0;
 	char *av[] = {"push", "pall"};
 
-	line += strspn(line, " ");
 	while (i < 2)
 	{
 		if (strncmp(line, av[i], strlen(av[i])) == 0)
 		{
-			line += strlen(av[i]);
-			break;
+		    a = strlen(av[i]);
+		    break;
 		}
 		i++;
 	}
+	return (a);
 }
 
 /**
@@ -85,7 +85,6 @@ void skip_tabs(char *line)
  */
 int get_num(char *operand, int line_number)
 {
-	printf("%s\n", operand);
 	if (*operand == '\0')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -102,17 +101,26 @@ int get_num(char *operand, int line_number)
 /**
  * error_p - check if error is present.
  * @line: line to be checked for token
- * @temp: line containing value
  * @line_n: line number
  *
  * Return: void function
  */
-void error_p(char *line, char *temp, int line_n)
+void error_p(char *line, int line_n)
 {
-	if (*line != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
+    char *token;
+    char *val;
+
+    val = strdup(line);
+    token = strtok(val, " ");
+    if (strncmp(token, "pall", 4) == 0)
+    {
+        free(val);
+        return;
+    }
+	else if (*line != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
 	{
-		free(temp);
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, temp);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+		free(val);
 		exit(EXIT_FAILURE);
 	}
 }
