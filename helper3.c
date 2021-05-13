@@ -8,13 +8,13 @@
  * Return: void function.
  */
 
-void pint(stack_t **stack, unsigned int ln __attribute__ ((unused)))
+void pint(stack_t **stack, unsigned int ln)
 {
 	stack_t *temp = *stack;
 
 	if (stack_len(*stack) == 0)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_n);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", ln);
 		exit(EXIT_FAILURE);
 	}
 	while (temp != NULL)
