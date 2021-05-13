@@ -66,7 +66,7 @@ int skip_tabs(char *line)
 	int i = 0, a = 0;
 	char *av[] = {"push", "pall", "pint"};
 
-	while (i < 2)
+	while (i < 3)
 	{
 		if (strncmp(line, av[i], strlen(av[i])) == 0)
 		{
