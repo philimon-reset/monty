@@ -45,6 +45,7 @@ void pop(stack_t **stack, unsigned int ln)
 		(*stack)->prev = NULL;
 	free(temp);
 }
+
 /**
  * swap - swaps the top two elements of the stack.
  * @stack: head of list.
