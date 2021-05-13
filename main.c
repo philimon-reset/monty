@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	size_t num = 0;
 
 	void (*fo)(stack_t **stack, unsigned int line_number);
-	
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
