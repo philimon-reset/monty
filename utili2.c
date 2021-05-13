@@ -161,6 +161,7 @@ void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 		if (strncmp(line, func[i].opcode, strlen(func[i].opcode)) == 0)
 		{
 			fo = func[i].f;
+			free(line);
 			return (fo);
 		}
 		i++;
