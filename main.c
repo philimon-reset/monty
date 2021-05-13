@@ -38,9 +38,6 @@ int main(int argc, char *argv[])
 		space = token(temp);
 		if (space == 0)
 		{
-			free(line);
-			line = NULL;
-			num = 0;
 			free(temp);
 			continue;
 		}
