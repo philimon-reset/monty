@@ -12,8 +12,10 @@ char *operand = NULL;
 int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
-	int line_n = 1;
+	int line_n = 1, a = 0, space = 0, pa;
 	char *line = NULL;
+	char *av[] = {"push"};
+	char *value = NULL;
 	char *temp = NULL;
 	FILE *stream;
 	size_t num = 0;
@@ -35,18 +37,33 @@ int main(int argc, char *argv[])
 	{
 		temp = strdup(line);
 		checker(temp);
+		space = token(temp);
+		if (space == 0)
+		    continue;
 		fo = get_op(temp);
+		free(temp);
 		if (fo)
 		{
-			skip_tabs(line);
-			error_p(line, temp, line_n);
-			operand = line + strspn(temp, " ");
-			printf("%s\n", operand);
+		    checker(line);
+		    line += strspn(line, " ");
+			a = skip_tabs(line);
+			pa = 0;
+			while (pa < 1)
+			{
+    			if (strncmp(line, av[pa], strlen(av[pa])) == 0)
+    			{
+    			    line += a;
+    			}
+    			pa++;
+			}
+			error_p(line, line_n);
+			operand = line + strspn(line, " ");
+			operand += strspn(operand, " ");
 			fo(&head, line_n);
 		}
 		else
 		{
-			error_p(line, temp, line_n);
+			error_p(line, line_n);
 		}
 		line_n++;
 	}
@@ -62,9 +79,8 @@ int main(int argc, char *argv[])
  */
 void checker(char *line)
 {
-	int i = 0;
+    int i = 0;
 
-	line += strspn(line, " ");
 	while (line[i] != '\0')
 	{
 		if (line[i] < ' ' || line[i] > 126)
@@ -72,4 +88,20 @@ void checker(char *line)
 		i++;
 	}
 	line[i] = '\0';
+}
+
+int token(const char *s)
+{
+    char* temp;
+    char* token;
+
+    temp = strdup(s);
+    token = strtok(temp, " ");
+    if (token == NULL)
+    {
+        free(temp);
+        return (0);
+    }
+    free(temp);
+    return (1);
 }
