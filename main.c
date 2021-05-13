@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	get_ = getline(&line, &num, stream);
-	while (get_ != -1)
+	while (get_ > 0)
 	{
 		temp = strdup(line);
 		space = token(temp);
@@ -67,7 +67,6 @@ int main(int argc, char *argv[])
 		}
 		line_n++;
 	}
-	free(line);
 	free_stack(head);
 	fclose(stream);
 	return (0);
