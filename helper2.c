@@ -64,9 +64,9 @@ void print_stacks(stack_t **stack, unsigned int linen __attribute__((unused)))
 int skip_tabs(char *line)
 {
 	int i = 0, a = 0;
-	char *av[] = {"push", "pall", "pint"};
+	char *av[] = {"push", "pall", "pint", "nop", "swap", "pop"};
 
-	while (i < 3)
+	while (i < 6)
 	{
 		if (strncmp(line, av[i], strlen(av[i])) == 0)
 		{
@@ -110,7 +110,7 @@ int get_num(char *line, int line_number)
  */
 void error_p(char *line, int line_n, stack_t **stack)
 {
-	char *token, *av[] = {"pall", "pint", "pop", "swap"};
+	char *token, *av[] = {"pall", "pint", "pop", "swap", "nop"};
 	int a = 0;
 	char *val;
 
@@ -124,9 +124,9 @@ void error_p(char *line, int line_n, stack_t **stack)
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
-	while (a < 4)
+	while (a < 5)
 	{
-		if (strncmp(line, av[a], 4) == 0)
+		if (strncmp(line, av[a], strlen(av[a]) == 0)
 		{
 			free(val);
 			return;
