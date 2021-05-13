@@ -110,7 +110,8 @@ int get_num(char *operand, int line_number)
  */
 void error_p(char *line, int line_n, stack_t **stack)
 {
-	char *token;
+	char *token, av[] = {"pall", "pint"};
+	int a = 0;
 	char *val;
 
 	val = strdup(line);
@@ -123,10 +124,14 @@ void error_p(char *line, int line_n, stack_t **stack)
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
-	if (strncmp(token, "pall", 4) == 0)
+	while (a < 2)
 	{
-		free(val);
-		return;
+		if (strncmp(token, av[i], 4) == 0)
+		{
+			free(val);
+			return;
+		}
+		a++;
 	}
 	else if (*line != ' ')
 	{
