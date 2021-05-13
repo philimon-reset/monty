@@ -67,7 +67,7 @@ void swap(stack_t **stack, unsigned int ln)
 	{
 		i++;
 		temp = temp->next;
-		stack = stack->next;
+		(*stack) = (*stack)->next;
 	}
 	((*stack)->prev)->n = temp->n;
 	(*stack)->n = (temp->prev)->n;
