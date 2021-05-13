@@ -23,3 +23,27 @@ void pint(stack_t **stack, unsigned int ln)
 		break;
 	}
 }
+
+/**
+ * pop - delete node at given index.
+ * @stack: head of list.
+ * @ln: index to delete.
+ *
+ * Return: 1 if successs -1 if not
+ */
+void pop(stack_t **stack, unsigned int ln)
+{
+	stack_t *temp = *head;
+	unsigned int size = 0, node = 0;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", ln);
+		exit(EXIT_FAILURE);
+	}
+	temp = *head;
+	*head = temp->next;
+	if (*head != NULL)
+		(*head)->prev = NULL;
+	free(temp);
+}
