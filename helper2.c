@@ -59,7 +59,7 @@ void print_stacks(stack_t **stack, unsigned int linen __attribute__((unused)))
  * skip_tabs - skips the unprintable characters.
  * @line: line to be checked.
  *
- * Returns: int line.
+ * Return: int line.
  */
 int skip_tabs(char *line)
 {
@@ -83,7 +83,7 @@ int skip_tabs(char *line)
  * @operand: value to be converted.
  * @line_number: line number.
  *
- * Returns: correct value if valid or exit if not.
+ * Return: correct value if valid or exit if not.
  */
 int get_num(char *operand, int line_number)
 {
