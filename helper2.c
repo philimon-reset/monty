@@ -90,13 +90,11 @@ int get_num(char *operand, int line_number)
 	if (*operand == '\0')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free(operand);
 		exit(EXIT_FAILURE);
 	}
 	if (*operand < 48 || *operand > 57)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free(operand);
 		exit(EXIT_FAILURE);
 	}
 	return (atoi(operand));
