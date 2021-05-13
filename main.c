@@ -99,11 +99,10 @@ int token(const char *s)
 
 	temp = strdup(s);
 	token = strtok(temp, " ");
+	free(temp);
 	if (token == NULL)
 	{
-		free(temp);
 		return (0);
 	}
-	free(temp);
 	return (1);
 }
