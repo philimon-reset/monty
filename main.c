@@ -43,9 +43,9 @@ int main(int argc, char *argv[])
 		}
 		fo = get_op(temp);
 		free(temp);
-		checker(line);
 		if (fo)
 		{
+			checker(line);
 			line += strspn(line, " ");
 			a = skip_tabs(line);
 			pa = 0;
