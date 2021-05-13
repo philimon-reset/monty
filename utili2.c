@@ -151,7 +151,7 @@ void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 	instruction_t func[] = {
 		{"push", push},
 		{"pall", print_stacks},
-		{"pint", pint}
+		{"pint", pint},
 		{NULL, NULL}
 	};
 
