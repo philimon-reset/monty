@@ -35,7 +35,6 @@ int main(int argc, char *argv[])
 	while (getline(&line, &num, stream) != -1)
 	{
 		temp = strdup(line);
-		checker(line);
 		space = token(temp);
 		if (space == 0)
 		{
@@ -44,6 +43,7 @@ int main(int argc, char *argv[])
 		}
 		fo = get_op(temp);
 		free(temp);
+		checker(line);
 		if (fo)
 		{
 			line += strspn(line, " ");
@@ -90,6 +90,7 @@ void checker(char *line)
 		i++;
 	}
 	line[i] = '\0';
+	
 }
 
 int token(const char *s)
