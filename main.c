@@ -89,8 +89,7 @@ void checker(char *line)
 			break;
 		i++;
 	}
-	line[i] = '\0';
-	
+	line[i] = '\0';	
 }
 
 int token(const char *s)
