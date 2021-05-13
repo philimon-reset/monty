@@ -39,6 +39,7 @@ typedef struct instruction_s
 } instruction_t;
 
 void checker(char *line);
+int token(const char *s);
 /** helper **/
 size_t stack_len(const stack_t *h);
 size_t print_stack(const stack_t *h);
@@ -48,9 +49,9 @@ int sum_stack(stack_t *head);
 /** helper2 **/
 void push(stack_t **stack, unsigned int line_number);
 void print_stacks(stack_t **stack, unsigned int line_number __attribute__((unused)));
-void skip_tabs(char *line);
+int skip_tabs(char *line);
 int get_num(char *operand, int line_number);
-void error_p(char *line, char *temp, int line_n);
+void error_p(char *line, int line_n);
 
 /** utili **/
 stack_t *add_dnodeint(stack_t **head, const int n);
