@@ -64,7 +64,7 @@ void print_stacks(stack_t **stack, unsigned int linen __attribute__((unused)))
 int skip_tabs(char *line)
 {
 	int i = 0, a = 0;
-	char *av[] = {"push", "pall"};
+	char *av[] = {"push", "pall", "pint"};
 
 	while (i < 2)
 	{
