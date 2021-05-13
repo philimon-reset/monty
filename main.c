@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			error_p(line, line_n);
+			error_p(line, line_n, &head);
 		}
 		line_n++;
 	}
