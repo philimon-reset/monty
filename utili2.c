@@ -153,11 +153,12 @@ void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 		{"pall", print_stacks},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 
 	line += strspn(line, " ");
-	while (i < 4)
+	while (i < 5)
 	{
 		if (strncmp(line, func[i].opcode, strlen(func[i].opcode)) == 0)
 		{
