@@ -56,7 +56,7 @@ int get_num(char *operand, int line_number);
 void error_p(char *line, int line_n, stack_t **stack);
 
 /** helper3 **/
-void pint(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int ln __attribute__ ((unused)));
 
 /** utili **/
 stack_t *add_dnodeint(stack_t **head, const int n);
