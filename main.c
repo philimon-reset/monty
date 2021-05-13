@@ -68,7 +68,6 @@ int main(int argc, char *argv[])
 		}
 		line_n++;
 	}
-	free_stack(head);
 	fclose(stream);
 	return (0);
 }
