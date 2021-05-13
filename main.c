@@ -82,13 +82,18 @@ char* checker(char *line)
 {
 	int i = 0;
 	char *av[] = {"push", "pall"};
+	char *token;
 
-	line += strspn(line, " ");
+	token = strtok(line, " ");
+	while (token != NULL)
+	{
+		token = strtok(NULL, " ");
+	}
 	while (av[i] != NULL)
 	{
-		if (strncmp(line, av[i], strlen(av[i])) == 0)
+		if (strncmp(token, av[i], strlen(av[i])) == 0)
 		{
-			line += strlen(av[i]);
+			
 			return (line);
 		}
 		i++;
