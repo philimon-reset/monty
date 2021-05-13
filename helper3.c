@@ -3,15 +3,14 @@
 /**
  * push - add to the begining of the list.
  * @stack: head of list.
- * @line_number: line_number.
+ * @ln: line_number.
  *
  * Return: void function.
  */
 
-void pint(stack_t **stack, unsigned int line_number)
+void pint(stack_t **stack, unsigned int ln __attribute__ ((unused)))
 {
 	const stack_t *temp = *stack;
-	int nodes = 0;
 
 	while (temp != NULL)
 	{
