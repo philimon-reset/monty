@@ -35,15 +35,17 @@ int main(int argc, char *argv[])
 	while (getline(&line, &num, stream) != -1)
 	{
 		temp = strdup(line);
-		checker(temp);
+		checker(line);
 		space = token(temp);
 		if (space == 0)
-		    continue;
+		{
+			free(temp);
+			continue;
+		}
 		fo = get_op(temp);
 		free(temp);
 		if (fo)
 		{
-			checker(line);
 			line += strspn(line, " ");
 			a = skip_tabs(line);
 			pa = 0;
