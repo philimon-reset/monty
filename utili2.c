@@ -144,7 +144,7 @@ stack_t *end(stack_t **head, stack_t *new_node)
  *
  * Return: function needed or else NULL
  */
-void (*get_op(char **line))(stack_t **stack, unsigned int line_number)
+void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 {
 	int i = 0;
 	void (*fo)(stack_t **stack, unsigned int line_number);
@@ -152,12 +152,11 @@ void (*get_op(char **line))(stack_t **stack, unsigned int line_number)
 		{"push", push},
 		{"pall", print_stacks}
 	};
-	char **p = NULL;
 
-	*p = skip_tabs(*line);
+	line += strspn(line," \t");
 	while (func[i].opcode != NULL)
 	{
-		if (strncmp(*p, func[i].opcode, strlen(func[i].opcode)) == 0)
+		if (strncmp(line, func[i].opcode, strlen(func[i].opcode)) == 0)
 		{
 			fo = func[i].f;
 			return (fo);
