@@ -126,7 +126,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 	}
 	if ((strncmp(line, "pint", 4) == 0) && stack_len(*stack) == 0)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty", line_n, token);
+		fprintf(stderr, "L%d: can't pint, stack empty", line_n);
 		free_stack(*stack);
 		free(val);
 		free(line);
