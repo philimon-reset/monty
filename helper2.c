@@ -59,6 +59,7 @@ int skip_tabs(char *line)
 {
 	int i = 0, a = 0;
 	char *av[] = {"push", "pall", "pint"};
+
 	while (i < 3)
 	{
 		if (strncmp(line, av[i], strlen(av[i])) == 0)
@@ -101,9 +102,10 @@ int get_num(char *line, int line_number)
  */
 void error_p(char *line, int line_n, stack_t **stack)
 {
-	char *token, *av[] = {"pall", "pint", "pop", "swap", "nop"};
+	char *token, *av[] = {"pall", "pint", "pop", "swap"};
 	int a = 0;
 	char *val;
+
 	val = strdup(line);
 	token = strtok(val, " ");
 	if (token == NULL)
@@ -114,7 +116,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
-	while (a < 5)
+	while (a < 4)
 	{
 		if (strncmp(line, av[a], strlen(av[a]) == 0))
 		{
