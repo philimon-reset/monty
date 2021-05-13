@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	stream = fopen(argv[1], "r");
 	if (stream == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while ((getline(&line, &num, stream)) != -1)
