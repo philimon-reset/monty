@@ -33,8 +33,7 @@ void pint(stack_t **stack, unsigned int ln)
  */
 void pop(stack_t **stack, unsigned int ln)
 {
-	stack_t *temp = *head;
-	unsigned int size = 0, node = 0;
+	stack_t *temp = *stack;
 
 	if (*stack == NULL)
 	{
