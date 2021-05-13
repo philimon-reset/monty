@@ -7,12 +7,10 @@
  *
  * Return: void function.
  */
-
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 	int value = get_num(line, line_number);
-
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -33,7 +31,6 @@ void push(stack_t **stack, unsigned int line_number)
 		*stack = new_node;
 	}
 }
-
 /**
  * print_stacks - print all the elements in the list.
  * @stack: head of the list.
@@ -41,12 +38,10 @@ void push(stack_t **stack, unsigned int line_number)
  *
  * Return: returns the number of nodes.
  */
-
 void print_stacks(stack_t **stack, unsigned int linen __attribute__((unused)))
 {
 	const stack_t *temp = *stack;
 	int nodes = 0;
-
 	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
@@ -54,7 +49,6 @@ void print_stacks(stack_t **stack, unsigned int linen __attribute__((unused)))
 		temp = temp->next;
 	}
 }
-
 /**
  * skip_tabs - skips the unprintable characters.
  * @line: line to be checked.
@@ -64,9 +58,8 @@ void print_stacks(stack_t **stack, unsigned int linen __attribute__((unused)))
 int skip_tabs(char *line)
 {
 	int i = 0, a = 0;
-	char *av[] = {"push", "pall", "pint", "nop", "swap", "pop"};
-
-	while (i < 6)
+	char *av[] = {"push", "pall", "pint"};
+	while (i < 3)
 	{
 		if (strncmp(line, av[i], strlen(av[i])) == 0)
 		{
@@ -77,7 +70,6 @@ int skip_tabs(char *line)
 	}
 	return (a);
 }
-
 /**
  * get_num - get the int needed or exit if not applicable.
  * @line: value to be converted.
@@ -99,7 +91,6 @@ int get_num(char *line, int line_number)
 	}
 	return (atoi(line));
 }
-
 /**
  * error_p - check if error is present.
  * @line: line to be checked for token.
@@ -113,7 +104,6 @@ void error_p(char *line, int line_n, stack_t **stack)
 	char *token, *av[] = {"pall", "pint", "pop", "swap", "nop"};
 	int a = 0;
 	char *val;
-
 	val = strdup(line);
 	token = strtok(val, " ");
 	if (token == NULL)
@@ -126,7 +116,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 	}
 	while (a < 5)
 	{
-		if (strncmp(line, av[a], strlen(av[a]) == 0))
+		if (strncmp(line, av[a], strlen(av[a]) == 0)
 		{
 			free(val);
 			return;
