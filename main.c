@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
  *
  * Return: stack to be added if valid
  */
-void* checker(char *line)
+void checker(char *line)
 {
 	int i = 0;
 
