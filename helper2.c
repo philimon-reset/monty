@@ -70,8 +70,8 @@ int skip_tabs(char *line)
 	{
 		if (strncmp(line, av[i], strlen(av[i])) == 0)
 		{
-			a = strlen(av[i]);
-			break;
+		    a = strlen(av[i]);
+		    break;
 		}
 		i++;
 	}
@@ -108,21 +108,20 @@ int get_num(char *operand, int line_number)
  */
 void error_p(char *line, int line_n)
 {
-	char *token;
-	char *val;
+    char *token;
+    char *val;
 
-	val = strdup(line);
-	token = strtok(val, " ");
-	if (strncmp(token, "pall", 4) == 0)
-	{
-		free(val);
-		return;
-	}
+    val = strdup(line);
+    token = strtok(val, " ");
+    if (strncmp(token, "pall", 4) == 0)
+    {
+        free(val);
+        return;
+    }
 	else if (*line != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
 		free(val);
 		exit(EXIT_FAILURE);
 	}
-	free(val);
 }
