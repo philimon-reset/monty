@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
 	}
 	free_stack(head);
 	fclose(stream);
-	free(line);
 	return (0);
 }
 
