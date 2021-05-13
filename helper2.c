@@ -60,7 +60,7 @@ void print_stacks(stack_t **stack, unsigned int line_number __attribute__((unuse
  *
  * Returns: void function
  */
-void *skip_tabs(char *line)
+void skip_tabs(char *line)
 {
 	int i = 0;
 	char *av[] = {"push", "pall"};
