@@ -18,9 +18,8 @@ int main(int argc, char *argv[])
 	char *temp = NULL;
 	FILE *stream;
 	size_t num = 0;
-
 	void (*fo)(stack_t **stack, unsigned int line_number);
-	
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -52,9 +51,7 @@ int main(int argc, char *argv[])
 			while (pa < 1)
 			{
 				if (strncmp(line, av[pa], strlen(av[pa])) == 0)
-				{
 					line += a;
-				}
 				pa++;
 			}
 			error_p(line, line_n, &head);
@@ -68,6 +65,7 @@ int main(int argc, char *argv[])
 		}
 		line_n++;
 	}
+	free(line);
 	free_stack(head);
 	fclose(stream);
 	return (0);
