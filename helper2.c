@@ -124,14 +124,6 @@ void error_p(char *line, int line_n, stack_t **stack)
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
-	if ((strncmp(line, "pint", 4) == 0) && stack_len(*stack) == 0)
-	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_n);
-		free_stack(*stack);
-		free(val);
-		free(line);
-		exit(EXIT_FAILURE);
-	}
 	while (a < 2)
 	{
 		if (strncmp(line, av[a], 4) == 0)
