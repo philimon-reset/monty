@@ -24,14 +24,12 @@ int main(int argc, char *argv[])
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 	stream = fopen(argv[1], "r");
 	if (stream == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s", argv[1]);
-		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &num, stream) != -1)
@@ -68,6 +66,7 @@ int main(int argc, char *argv[])
 		}
 		line_n++;
 	}
+	free_stack(head);
 	fclose(stream);
 	return (0);
 }
