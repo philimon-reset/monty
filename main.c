@@ -20,18 +20,16 @@ int main(int argc, char *argv[])
 	size_t num = 0;
 
 	void (*fo)(stack_t **stack, unsigned int line_number);
-
+	
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 	stream = fopen(argv[1], "r");
 	if (stream == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s", argv[1]);
-		free_stack(head);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &num, stream) != -1)
@@ -45,17 +43,17 @@ int main(int argc, char *argv[])
 		free(temp);
 		if (fo)
 		{
-			checker(line);
-			line += strspn(line, " ");
+		    checker(line);
+		    line += strspn(line, " ");
 			a = skip_tabs(line);
 			pa = 0;
 			while (pa < 1)
 			{
-				if (strncmp(line, av[pa], strlen(av[pa])) == 0)
-				{
-					line += a;
-				}
-				pa++;
+    			if (strncmp(line, av[pa], strlen(av[pa])) == 0)
+    			{
+    			    line += a;
+    			}
+    			pa++;
 			}
 			error_p(line, line_n);
 			operand = line + strspn(line, " ");
@@ -68,8 +66,6 @@ int main(int argc, char *argv[])
 		}
 		line_n++;
 	}
-	free(line);
-	free_stack(head);
 	fclose(stream);
 	return (0);
 }
@@ -100,10 +96,11 @@ int token(const char *s)
 
 	temp = strdup(s);
 	token = strtok(temp, " ");
-	free(temp);
 	if (token == NULL)
 	{
+		free(temp);
 		return (0);
 	}
+	free(temp);
 	return (1);
 }
