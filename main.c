@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
 	char *temp = NULL;
 	FILE *stream;
 	size_t num = 0, get_;
-	unsigned an = -1;
 	void (*fo)(stack_t **stack, unsigned int line_number);
 
 	if (argc != 2)
@@ -33,7 +32,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	get_ = getline(&line, &num, stream);
-	while (get_ != an)
+	while ((get_) != -1)
 	{
 		temp = strdup(line);
 		space = token(temp);
