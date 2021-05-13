@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 		if (space == 0)
 		{
 			free(temp);
+			line_n++;
 			continue;
 		}
 		fo = get_op(temp);
