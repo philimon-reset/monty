@@ -110,7 +110,7 @@ int get_num(char *operand, int line_number)
  */
 void error_p(char *line, int line_n, stack_t **stack)
 {
-	char *token, av[] = {"pall", "pint"};
+	char *token, *av[] = {"pall", "pint"};
 	int a = 0;
 	char *val;
 
@@ -126,7 +126,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 	}
 	while (a < 2)
 	{
-		if (strncmp(token, av[i], 4) == 0)
+		if (strncmp(line, av[i], 4) == 0)
 		{
 			free(val);
 			return;
