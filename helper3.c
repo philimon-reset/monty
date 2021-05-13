@@ -45,7 +45,6 @@ void pop(stack_t **stack, unsigned int ln)
 		(*stack)->prev = NULL;
 	free(temp);
 }
-
 /**
  * swap - swaps the top two elements of the stack.
  * @stack: head of list.
@@ -55,21 +54,16 @@ void pop(stack_t **stack, unsigned int ln)
  */
 void swap(stack_t **stack, unsigned int ln)
 {
-	stack_t *temp = *stack;
-	int i = 0;
+	stack_t *stack2 = *stack;
+	int a = 0, b = 0;
 
 	if (stack_len(*stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
-	while (temp != NULL)
-	{
-		i++;
-		temp = temp->next;
-		(*stack) = (*stack)->next;
-	}
-	((*stack)->prev)->n = temp->n;
-	(*stack)->n = (temp->prev)->n;
-	free(temp);
+	a = stack2->n;
+	b = (stack2->next)->n;
+	(*stack)->n = b;
+	((*stack)->next)->n = a;
 }
