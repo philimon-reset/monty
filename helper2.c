@@ -73,23 +73,19 @@ char *skip_tabs(char *line)
  */
 int get_num(char *operand, int line_number)
 {
-	char *val = strdup(operand);
-
-	if (*val == '\0')
+    printf("%s\n", operand);
+	if (*operand == '\0')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free(val);
 		exit(EXIT_FAILURE);
 	}
-	while (*val != '\0')
+	while (*operand != '\0')
 	{
-		if (*val < 48 || *val > 57)
+		if (*operand < 48 || *operand > 57)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			free(val);
 			exit(EXIT_FAILURE);
 		}
 	}
-	free(val);
 	return (atoi(operand));
 }
