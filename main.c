@@ -12,8 +12,8 @@ char *operand = NULL;
 int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
-	int line_n = 1, a = 0, space = 0, pa;
-	char *line = NULL, *temp = NULL, *av[] = {"push"};
+	int line_n = 1, a = 0, space = 0;
+	char *line = NULL, *temp = NULL;
 	FILE *stream;
 	size_t num = 0;
 	void (*fo)(stack_t **stack, unsigned int line_number);
@@ -38,16 +38,7 @@ int main(int argc, char *argv[])
 		free(temp);
 		if (fo)
 		{
-			checker(line);
-			line += strspn(line, " ");
-			a = skip_tabs(line);
-			pa = 0;
-			while (pa < 1)
-			{
-				if (strncmp(line, av[pa], strlen(av[pa])) == 0)
-					line += a;
-				pa++;
-			}
+			line = checker2(line);
 			error_p(line, line_n, &head);
 			operand = line + strspn(line, " ");
 			operand += strspn(operand, " ");
@@ -117,4 +108,28 @@ void argcc(int argc_n)
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
+}
+
+/**
+ * checker2 - check if argc if valid.
+ * @line: string to be checked
+ *
+ * Return: character pointer
+ */
+char *checker2(char *line)
+{
+	int pa;
+	char *av[] = {"push"}
+
+	checker(line);
+	line += strspn(line, " ");
+	a = skip_tabs(line);
+	pa = 0;
+	while (pa < 1)
+	{
+		if (strncmp(line, av[pa], strlen(av[pa])) == 0)
+			line += a;
+		pa++;
+	}
+	return (line);
 }
