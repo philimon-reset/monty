@@ -153,11 +153,12 @@ void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 		{"pall", print_stacks},
 		{NULL, NULL}
 	};
+	char *token;
 
-	line += strspn(line," ");
+	token = strtok(line, " ");
 	while (func[i].opcode != NULL)
 	{
-		if (strncmp(line, func[i].opcode, strlen(func[i].opcode)) == 0)
+		if (strncmp(token, func[i].opcode, strlen(func[i].opcode)) == 0)
 		{
 			fo = func[i].f;
 			return (fo);
