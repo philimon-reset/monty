@@ -38,6 +38,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void argcc(int argc_n);
 void checker(char *line);
 int token(char *s);
 /** helper **/
