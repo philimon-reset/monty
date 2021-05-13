@@ -151,11 +151,12 @@ void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 	instruction_t func[] = {
 		{"push", push},
 		{"pall", print_stacks},
+		{"pint", pint}
 		{NULL, NULL}
 	};
 
 	line += strspn(line, " ");
-	while (i < 2)
+	while (i < 3)
 	{
 		if (strncmp(line, func[i].opcode, strlen(func[i].opcode)) == 0)
 		{
