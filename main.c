@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	char *av[] = {"push"};
 	char *temp = NULL;
 	FILE *stream;
-	size_t num = 0;
+	size_t num = 0, get_;
 	void (*fo)(stack_t **stack, unsigned int line_number);
 
 	if (argc != 2)
@@ -31,7 +31,8 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (getline(&line, &num, stream) != -1)
+	get_ = getline(&line, &num, stream);
+	while (get_ != -1)
 	{
 		temp = strdup(line);
 		space = token(temp);
