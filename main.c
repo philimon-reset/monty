@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
 	int line_n = 1;
-	char *operand = NULL;
 	char *line = NULL;
 	char *value = NULL;
 	char *temp = NULL;
