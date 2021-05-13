@@ -1,6 +1,6 @@
 #include "monty.h"
 
-char *operand = NULL;
+char *line = NULL;
 /**
  * main - main function
  * @argc: number of arguments
@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
 	int line_n = 1, space = 0;
-	char *line = NULL, *temp;
+	char *temp;
 	FILE *stream;
 	size_t num = 0;
 	void (*fo)(stack_t **stack, unsigned int line_number);
@@ -41,8 +41,7 @@ int main(int argc, char *argv[])
 		{
 			line = checker2(line);
 			error_p(line, line_n, &head);
-			operand = line + strspn(line, " ");
-			operand += strspn(operand, " ");
+			line += strspn(line, " ");
 			fo(&head, line_n);
 		}
 		else
