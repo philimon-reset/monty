@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
 	int line_n = 1;
-	char *line = NULL, *value = NULL, *temp = strdup(line), *token;
+	char *line = NULL, *value = NULL, *temp = NULL, *token;
 	FILE *stream;
 	size_t num = 0;
 
@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
 	}
 	while (getline(&line, &num, stream) != -1)
 	{
+		temp = strdup(line);
 		if (checker(&temp) == 1)
 		{
 			fo = get_op(&line);
@@ -42,17 +43,20 @@ int main(int argc, char *argv[])
 			if (*temp != '\n')
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_n);
+				free(temp);
 				exit(EXIT_FAILURE);
 			}
 			if (*temp != ' ')/** value plus other string, check if first character is a new_line(different error if so) **/
 			{
 				token = strtok(line, " ");
 				fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+				free(temp);
 				exit(EXIT_FAILURE);
 			}
 			else
 			{
 				operand = temp + strspn(temp, " ");
+				free(temp);
 				fo(&head, line_n);
 			}
 		}
@@ -60,6 +64,7 @@ int main(int argc, char *argv[])
 		{
 			token = strtok(line, " ");
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+			free(temp);
 			exit(EXIT_FAILURE);
 		}
 		line_n++;
