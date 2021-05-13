@@ -40,9 +40,8 @@ void pop(stack_t **stack, unsigned int ln)
 		fprintf(stderr, "L%d: can't pop an empty stack\n", ln);
 		exit(EXIT_FAILURE);
 	}
-	temp = *head;
-	*head = temp->next;
-	if (*head != NULL)
-		(*head)->prev = NULL;
+	*stack = temp->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
 	free(temp);
 }
