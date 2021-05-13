@@ -76,13 +76,6 @@ void *skip_tabs(char *line)
 		i++;
 	}
 	line += strlen(av[i]);
-	while (line[i] != '\0')
-	{
-		if (line[i] < ' ' || line[i] > 126)
-			break;
-		i++;
-	}
-	line[i] = '\0';
 }
 
 /**
