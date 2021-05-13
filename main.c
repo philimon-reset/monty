@@ -17,7 +17,8 @@ int main(int argc, char *argv[])
 	char *av[] = {"push"};
 	char *temp = NULL;
 	FILE *stream;
-	size_t num = 0, get_;
+	size_t num = 0;
+	unsigned get_;
 	void (*fo)(stack_t **stack, unsigned int line_number);
 
 	if (argc != 2)
