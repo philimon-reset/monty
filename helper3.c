@@ -68,3 +68,16 @@ void swap(stack_t **stack, unsigned int ln)
 	(*stack)->n = b;
 	((*stack)->next)->n = a;
 }
+
+/**
+ * nop - doesn't do anything
+ * @stack: top of the stack/ head of doubly linked list
+ * @line_number: line number of the instruction
+ *
+ * Return: void
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	stack = stack;
+	line_number = line_number;
+}
