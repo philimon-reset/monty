@@ -17,8 +17,7 @@ int main(int argc, char *argv[])
 	char *av[] = {"push"};
 	char *temp = NULL;
 	FILE *stream;
-	size_t num = 0;
-	unsigned get_;
+	size_t num = 0, get_;
 	void (*fo)(stack_t **stack, unsigned int line_number);
 
 	if (argc != 2)
@@ -33,7 +32,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	get_ = getline(&line, &num, stream);
-	while (get_ > 0)
+	while (get_ != -1)
 	{
 		temp = strdup(line);
 		space = token(temp);
@@ -62,9 +61,7 @@ int main(int argc, char *argv[])
 			fo(&head, line_n);
 		}
 		else
-		{
 			error_p(line, line_n, &head);
-		}
 		line_n++;
 	}
 	free_stack(head);
