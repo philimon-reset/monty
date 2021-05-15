@@ -87,7 +87,7 @@ int skip_tabs(char *line)
  */
 int get_num(char *line, int line_number)
 {
-	if (*line == '\0')
+	if (*line == '\0' || strlen(line) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
