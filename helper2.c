@@ -113,10 +113,9 @@ void error_p(char *line, int line_n, stack_t **stack)
 	char *token, *av[] = {"pall", "pint", "pop", "swap"};
 	int a = 0;
 	char *val;
-	char *saveptr1;
 
 	val = strdup(line);
-	token = strtok_r(val, " ", &saveptr1);
+	token = strtok(val, " ");
 	if (token == NULL)
 	{
 		free(val);
