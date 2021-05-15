@@ -1,4 +1,3 @@
-
 #include "monty.h"
 
 char *line = NULL;
@@ -127,6 +126,8 @@ char *checker2(char *line)
 	line += strspn(line, " ");
 	a = skip_tabs(line);
 	pa = 0;
+	if (strcmp(line, av[0]) != 0)
+		return (line);
 	while (pa < 1)
 	{
 		if (strncmp(line, av[pa], strlen(av[pa])) == 0)
