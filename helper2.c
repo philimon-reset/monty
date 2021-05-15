@@ -87,15 +87,20 @@ int skip_tabs(char *line)
  */
 int get_num(char *line, int line_number)
 {
+	int i = 0;
+
 	if (*line == '\0' || strlen(line) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (*line < 48 || *line > 57)
+	for (; line[i] != '\0'; i++)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
+		if (line[i] < 45 || line[i] > 57)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
 	}
 	return (atoi(line));
 }
