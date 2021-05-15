@@ -113,6 +113,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 	char *token, *av[] = {"pall", "pint", "pop", "swap"};
 	int a = 0;
 	char *val;
+	char *str;
 
 	val = strdup(line);
 	token = strtok(val, " ");
@@ -134,7 +135,9 @@ void error_p(char *line, int line_n, stack_t **stack)
 	}
 	if (*line != ' ')
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
+		strcpy(str, "push");
+		strcat(str, token);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, str);
 		free_stack(*stack);
 		free(val);
 		free(line);
