@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	{
 		temp = strdup(line);
 		space = token(temp);
-		if (space == 0)
+		if (space == 0 || line[1] == '\n')
 		{
 			free(temp);
 			line_n++;
