@@ -113,14 +113,14 @@ void error_p(char *line, int line_n, stack_t **stack)
 	char *token, *av[] = {"pall", "pint", "pop", "swap"};
 	int a = 0;
 	char *val;
+	char *saveptr1;
 
 	val = strdup(line);
-	token = strtok(val, " ");
+	token = strtok_r(val, " ", &saveptr1);
 	if (token == NULL)
 	{
 		free(val);
 		free_stack(*stack);
-		free(line);
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
