@@ -96,6 +96,8 @@ int get_num(char *line, int line_number)
 	}
 	for (; line[i] != '\0'; i++)
 	{
+		if (line[i] == ' ')
+			break;
 		if (line[i] < 45 || line[i] > 57)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
