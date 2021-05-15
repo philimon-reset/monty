@@ -27,11 +27,9 @@ int main(int argc, char *argv[])
 	}
 	while (getline(&line, &num, stream) != -1)
 	{
-		if (line[0] == '\n')
-			continue;
 		temp = strdup(line);
 		space = token(temp);
-		if (space == 0)
+		if (space == 0 || strlen(line) < 3)
 		{
 			free(temp);
 			line_n++;
