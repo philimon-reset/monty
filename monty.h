@@ -75,4 +75,7 @@ stack_t *end(stack_t **head, stack_t *new_node);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 void (*get_op(char *line))(stack_t **stack, unsigned int line_number);
 
+/** utili3 **/
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+
 #endif /*MONTY_H*/
