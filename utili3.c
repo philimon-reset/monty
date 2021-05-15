@@ -47,7 +47,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
  *
  * Return: return the minimum
  */
-int min(unsigned int a, unsigned int b)
+unsigned min(unsigned int a, unsigned int b)
 {
 	if (a < b)
 		return (a);
