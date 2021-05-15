@@ -1,3 +1,4 @@
+
 #include "monty.h"
 
 char *line = NULL;
@@ -128,7 +129,7 @@ char *checker2(char *line)
 	pa = 0;
 	while (pa < 1)
 	{
-		if (strncmp(line, av[pa], strlen(av[pa]) == 0))
+		if (strncmp(line, av[pa], strlen(av[pa])) == 0)
 			line += a;
 		pa++;
 	}
