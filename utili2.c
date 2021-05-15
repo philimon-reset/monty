@@ -158,6 +158,8 @@ void (*get_op(char *line))(stack_t **stack, unsigned int line_number)
 	};
 
 	line += strspn(line, " ");
+	if (strlen(line) < 4)
+		return(NULL);
 	while (i < 5)
 	{
 		if (strncmp(line, func[i].opcode, strlen(func[i].opcode)) == 0)
