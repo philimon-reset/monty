@@ -38,6 +38,8 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+#define min(a, b) (((a) < (b)) ? (a) : (b))
+
 char *checker2(char *line);
 void argcc(int argc_n);
 void checker(char *line);
@@ -77,6 +79,5 @@ void (*get_op(char *line))(stack_t **stack, unsigned int line_number);
 
 /** utili3 **/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-int min(unsigned int a, unsigned int b);
 
 #endif /*MONTY_H*/
