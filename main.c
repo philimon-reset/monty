@@ -45,7 +45,10 @@ int main(int argc, char *argv[])
 			fo(&head, line_n);
 		}
 		else
+		{
 			error_p(line, line_n, &head);
+			fclose(stream);
+		}
 		line_n++;
 	}
 	free_stack(head);
