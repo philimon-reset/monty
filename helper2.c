@@ -128,6 +128,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 	{
 		free(val);
 		free_stack(*stack);
+		free(line);
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
@@ -146,6 +147,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, str);
 		free_stack(*stack);
 		free(val);
+		free(line);
 		exit(EXIT_FAILURE);
 	}
 	free(val);
