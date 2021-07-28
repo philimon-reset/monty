@@ -25,6 +25,13 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+	line = malloc(num * sizeof(stream));
+	if (line == NULL)
+	{
+	   	fprintf(stderr, "Error: malloc failed\n");
+		fclose(stream);
+		exit(EXIT_FAILURE);
+	}
 	while (getline(&line, &num, stream) != -1)
 	{
 		temp = strdup(line);
