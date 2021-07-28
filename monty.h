@@ -77,6 +77,6 @@ void (*get_op(char *line))(stack_t **stack, unsigned int line_number);
 
 /** utili3 **/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-unsigned min(unsigned int a, unsigned int b);
+unsigned int min(unsigned int a, unsigned int b);
 
 #endif /*MONTY_H*/
