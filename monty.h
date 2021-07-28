@@ -42,6 +42,7 @@ char *checker2(char *line);
 void argcc(int argc_n);
 void checker(char *line);
 int token(char *s);
+void file_into_list(FILE *stream, stack_t *head);
 /** helper **/
 size_t stack_len(const stack_t *h);
 size_t print_stack(const stack_t *h);
