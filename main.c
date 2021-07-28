@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
 		if (space == 0 || strlen(line) < 3)
 		{
 			free(temp);
+			free(line);
 			line_n++;
 			continue;
 		}
