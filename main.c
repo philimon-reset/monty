@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
 			error_p(line, line_n, &head);
 		line_n++;
 	}
+	free(line);
 	free_stack(head);
 	fclose(stream);
 	return (0);
