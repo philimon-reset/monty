@@ -12,7 +12,11 @@ char *line = NULL;
 int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
+	int line_n = 1, space = 0;
+	char *temp;
 	FILE *stream;
+	size_t num = 0;
+	void (*fo)(stack_t **stack, unsigned int line_number);
 
 	argcc(argc);
 	stream = fopen(argv[1], "r");
@@ -21,25 +25,6 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	file_into_list(stream, head);
-	free_stack(head);
-	return (0);
-}
-
-/**
- * file_into_list - copies the contents of a file into a linked list
- * @stream: file stream
- * @head: head of stack
- *
- * Return: void
- */
-void file_into_list(FILE *stream, stack_t *head)
-{
-	char *temp = NULL;
-	size_t num = 0;
-	int line_n = 1, space = 0;
-	void (*fo)(stack_t **stack, unsigned int line_number);
-
 	while (getline(&line, &num, stream) != -1)
 	{
 		temp = strdup(line);
@@ -61,12 +46,53 @@ void file_into_list(FILE *stream, stack_t *head)
 			fo(&head, line_n);
 		}
 		else
-		{
 			error_p(line, line_n, &head);
-		}
 		line_n++;
 	}
+	free_stack(head);
 	fclose(stream);
+	return (0);
+}
+
+/**
+ * checker - checks if value given is valid
+ * @line: current line to be checked
+ *
+ * Return: stack to be added if valid
+ */
+void checker(char *line)
+{
+	int i = 0;
+
+	while (line[i] != '\0')
+	{
+		if (line[i] < ' ' || line[i] > 126)
+			break;
+		i++;
+	}
+	line[i] = '\0';
+}
+/**
+ * token - checks if value given is valid
+ * @s: current line to be checked
+ *
+ * Return: 1 or 0
+ */
+
+int token(char *s)
+{
+	char *temp;
+	char *token;
+
+	temp = strdup(s);
+	token = strtok(temp, " ");
+	if (token == NULL)
+	{
+		free(temp);
+		return (0);
+	}
+	free(temp);
+	return (1);
 }
 
 /**
