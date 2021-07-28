@@ -69,7 +69,6 @@ void checker(char *line)
 			break;
 		i++;
 	}
-	line[i] = '\0';
 }
 /**
  * token - checks if value given is valid
