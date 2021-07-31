@@ -141,5 +141,4 @@ void error_p(char *line, int line_n, stack_t **stack)
 		free(line);
 		exit(EXIT_FAILURE);
 	}
-	free(val);
 }
