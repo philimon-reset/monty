@@ -87,22 +87,15 @@ int skip_tabs(char *line)
  */
 int get_num(char *line, int line_number)
 {
-	int i = 0;
-
-	if (*line == '\0' || strlen(line) == 0)
+	if (*line == '\0')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	for (; line[i] != '\0'; i++)
+	if (*line < 48 || *line > 57)
 	{
-		if (line[i] == ' ')
-			break;
-		if (line[i] < 45 || line[i] > 57)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
-		}
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	return (atoi(line));
 }
@@ -120,7 +113,6 @@ void error_p(char *line, int line_n, stack_t **stack)
 	char *token, *av[] = {"pall", "pint", "pop", "swap"};
 	int a = 0;
 	char *val;
-	char str[] = {"push"};
 
 	val = strdup(line);
 	token = strtok(val, " ");
@@ -143,8 +135,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 	}
 	if (*line != ' ')
 	{
-		strcat(str, token);
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, str);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_n, token);
 		free_stack(*stack);
 		free(val);
 		free(line);
