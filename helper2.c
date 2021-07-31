@@ -120,6 +120,7 @@ void error_p(char *line, int line_n, stack_t **stack)
 	if (token == NULL)
 	{
 		free(val);
+		free(line);
 		free_stack(*stack);
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
