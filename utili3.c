@@ -39,3 +39,17 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 			return (NULL);
 	}
 }
+
+/**
+ * min - minumum of a and b
+ * @a: first integer
+ * @b: second integer
+ *
+ * Return: return the minimum
+ */
+unsigned min(unsigned int a, unsigned int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
